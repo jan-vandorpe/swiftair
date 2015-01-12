@@ -1,6 +1,6 @@
 <?php
 
-/* @WebProfiler/Profiler/toolbar.css.twig */
+/* WebProfilerBundle:Profiler:toolbar.css.twig */
 class __TwigTemplate_7709d1dd3d39c3742f17f8f13dde9ed11ce683806e7d25f944be4841d99334f3 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -359,7 +359,7 @@ table.sf-toolbar-ajax-requests {
 /***** Override the setting when the toolbar is on the top *****/
 ";
         // line 342
-        if (((isset($context["position"]) ? $context["position"] : $this->getContext($context, "position")) == "top")) {
+        if (((isset($context["position"]) ? $context["position"] : null) == "top")) {
             // line 343
             echo "    .sf-minitoolbar {
         top: 0;
@@ -406,7 +406,7 @@ table.sf-toolbar-ajax-requests {
         echo "
 ";
         // line 384
-        if ((!(isset($context["floatable"]) ? $context["floatable"] : $this->getContext($context, "floatable")))) {
+        if ((!(isset($context["floatable"]) ? $context["floatable"] : null))) {
             // line 385
             echo "    .sf-toolbarreset {
         position: static;
@@ -469,7 +469,7 @@ table.sf-toolbar-ajax-requests {
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Profiler/toolbar.css.twig";
+        return "WebProfilerBundle:Profiler:toolbar.css.twig";
     }
 
     public function isTraitable()
