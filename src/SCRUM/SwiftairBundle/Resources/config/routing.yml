@@ -1,0 +1,3 @@
+scrum_swiftair_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SCRUMSwiftairBundle:Default:index }

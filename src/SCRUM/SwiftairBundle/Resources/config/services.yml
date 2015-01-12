@@ -1,0 +1,4 @@
+services:
+#    scrum_swiftair.example:
+#        class: SCRUM\SwiftairBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
