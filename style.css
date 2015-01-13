@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*** GENERAL - MOBILE FIRST ***/
+/* HEADER */
+body{
+	background-image:url(img/2008-vliegtuigje%20met%20staartklein.gif);
+	background-repeat:no-repeat;
+	background-position:top right;
+}
+
+#login{
+	padding: 5px 0px 0px 5px;	
+}
+
+
+
