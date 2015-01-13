@@ -79,6 +79,7 @@
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'SCRUMSwiftairBundle::base.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\src\\SCRUM\\SwiftairBundle/Resources/views/base.html.twig',
   'SCRUMSwiftairBundle:Default:index.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\src\\SCRUM\\SwiftairBundle/Resources/views/Default/index.html.twig',
+  'SCRUMSwiftairBundle:Index:index.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\src\\SCRUM\\SwiftairBundle/Resources/views/Index/index.html.twig',
   'DebugBundle:Profiler:dump.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle/Resources/views/Profiler/dump.html.twig',
   'WebProfilerBundle:Collector:ajax.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/ajax.html.twig',
   'WebProfilerBundle:Collector:config.html.twig' => 'C:\\xampp\\htdocs\\swiftair\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/config.html.twig',

@@ -10,6 +10,7 @@ class __TwigTemplate_7b9bc804f8a736a95f6354998c7cb91b0c6df1f0539ac671eda0fe5a60b
         $this->parent = $this->env->loadTemplate("SCRUMSwiftairBundle::base.html.twig");
 
         $this->blocks = array(
+            'javascripts' => array($this, 'block_javascripts'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -25,9 +26,14 @@ class __TwigTemplate_7b9bc804f8a736a95f6354998c7cb91b0c6df1f0539ac671eda0fe5a60b
     }
 
     // line 3
+    public function block_javascripts($context, array $blocks = array())
+    {
+    }
+
+    // line 5
     public function block_body($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "    Hello ";
         echo twig_escape_filter($this->env, (isset($context["name"]) ? $context["name"] : null), "html", null, true);
         echo "!
@@ -46,6 +52,6 @@ class __TwigTemplate_7b9bc804f8a736a95f6354998c7cb91b0c6df1f0539ac671eda0fe5a60b
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,);
+        return array (  37 => 6,  34 => 5,  29 => 3,);
     }
 }
