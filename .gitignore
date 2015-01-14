@@ -4,13 +4,5 @@ app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 app/cache/dev/appDevProjectContainer.php
-app/cache/dev/appDevProjectContainer.php
-app/cache/dev/twig/aa/5b/6e52d30ee9efb1f4723d7e8e86aaabf4170f4d843ecc446b298775160d51.php
-app/cache/dev/twig/d3/7e/4fbc8b39f75054917bf4755122c4ae4ac19797b774884d17fb9b48489bf9.php
-app/cache/dev/twig/f3/87/ff856175c70483e75bcbddfb9fb689d7dbd398b6fc2b74bed6d8ad79673b.php
 app/logs/dev.log
 app/logs/prod.log
-src/SCRUM/SwiftairBundle/Resources/public/img/2008-vliegtuigje met staart.gif
-src/SCRUM/SwiftairBundle/Resources/public/img/2008-vliegtuigje met staart.gif
-src/SCRUM/SwiftairBundle/Resources/public/img/2008-vliegtuigje met staartklein.gif
-src/SCRUM/SwiftairBundle/Resources/public/img/2008-vliegtuigje-met-staart.gif
