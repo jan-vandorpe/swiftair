@@ -23,50 +23,83 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
         echo "<!DOCTYPE html>
 <html>
     <head>
-        <meta charset=\"UTF-8\" />
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+        <meta http-equiv=\"CACHE-CONTROL\" content=\"NO-CACHE\" />
+        
         <title>";
-        // line 5
+        // line 7
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        
         ";
-        // line 6
+        // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 7
-        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
-        echo "\" />
+        // line 26
+        echo "        
     </head>
     <body>
         ";
-        // line 10
+        // line 29
         $this->displayBlock('body', $context, $blocks);
-        // line 150
+        // line 169
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 151
+        // line 170
         echo "    </body>
 </html>
 ";
     }
 
-    // line 5
+    // line 7
     public function block_title($context, array $blocks = array())
     {
-        echo "Welcome!";
+        echo "Swiftair";
     }
 
-    // line 6
+    // line 9
     public function block_stylesheets($context, array $blocks = array())
     {
+        echo "   
+        <link rel='stylesheet' type=\"text/css\"  href=\"#\"/>
+        <link rel='stylesheet' type='text/css' href=";
+        // line 11
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.css"), "html", null, true);
+        echo " />
+
+        <script src=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery-ui.min.js"), "html", null, true);
+        echo "\"></script>
+\t\t
+\t\t<script src=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/airline.js"), "html", null, true);
+        echo "\"></script>
+\t\t
+\t\t<!-- 
+        <script src=\"//code.jquery.com/jquery.validate.min.js\"></script>
+        <script src=\"//code.jquery.com/additional-methods.min.js\"></script>
+        <script src=\"//code.jquery.com/jquery.slides.min.js\"></script>
+        <script src=\"//code.jquery.com/jquery.ui.datepicker-nl-BE.js\"></script> -->
+
+        
+        ";
     }
 
-    // line 10
+    // line 29
     public function block_body($context, array $blocks = array())
     {
-        // line 11
+        // line 30
         echo "\t\t<div id=\"container\">
   <div id=\"kop\">
-    <img id=\"koptitel\" alt=\"Swiftair\"  /></div>
+    <img src=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/img/2008-vliegtuigje met staartklein.gif"), "html", null, true);
+        echo "\" id=\"koptitel\" alt=\"Swiftair\"  /></div>
   <div id=\"buik\">
     <div id=\"links\">&nbsp;</div>
     <div id=\"tester\" style=\"display:none\">tester element</div>
@@ -162,7 +195,7 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
           </form>
         </div>
         <div id=\"checkin\">
-          <div class='foutBox' id='checkinFouten'><h2>Fouten</h2><ul></ul></div>
+          <div class=\"foutBox\" id=\"checkinFouten\"><h2>Fouten</h2><ul></ul></div>
             <h1>Online check-in</h1>
           <p>Welkom op Sardine Airways online check-in systeem.</p>
           <p>U kunt vanaf 3 dagen tot ten laatste 4 uur v&oacute;&oacute;r uw vlucht inchecken. Eenmaal ingecheckt kunt u ten allen tijde uw boarding paas (opnieuw) uitprinten tot 40 minuten  v&oacute;&oacute;r vertrektijd.</p>
@@ -205,7 +238,7 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
 \t\t";
     }
 
-    // line 150
+    // line 169
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -215,13 +248,8 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
         return "SCRUMSwiftairBundle::base.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  209 => 150,  67 => 11,  64 => 10,  59 => 6,  53 => 5,  47 => 151,  44 => 150,  42 => 10,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  242 => 169,  101 => 32,  97 => 30,  94 => 29,  80 => 16,  75 => 14,  71 => 13,  66 => 11,  60 => 9,  54 => 7,  48 => 170,  45 => 169,  43 => 29,  38 => 26,  36 => 9,  31 => 7,  23 => 1,);
     }
 }
