@@ -20,7 +20,7 @@ class __TwigTemplate_9b74609ecc9240d37ec1e0bd79d6465e0c40369b8ef9210eee9e0e38bf4
     ";
         // line 2
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["logs"]) ? $context["logs"] : null));
+        $context['_seq'] = twig_ensure_traversable((isset($context["logs"]) ? $context["logs"] : $this->getContext($context, "logs")));
         foreach ($context['_seq'] as $context["_key"] => $context["log"]) {
             // line 3
             echo "        <li";
