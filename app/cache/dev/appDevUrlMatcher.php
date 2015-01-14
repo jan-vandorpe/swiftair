@@ -141,6 +141,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'SCRUM\\SwiftairBundle\\Controller\\IndexController::indexAction',  '_route' => 'scrum_swiftair_index',);
         }
 
+        // scrum_swiftair_temp
+        if ($pathinfo === '/temp') {
+            return array (  '_controller' => 'SCRUM\\SwiftairBundle\\Controller\\TempController::indexAction',  '_route' => 'scrum_swiftair_temp',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
