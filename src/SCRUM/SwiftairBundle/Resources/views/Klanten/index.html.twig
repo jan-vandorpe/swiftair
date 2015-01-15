@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Klanten list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Klantnaam</th>
+                <th>Klantvoornaam</th>
+                <th>Klantadres</th>
+                <th>Klanttelefoon</th>
+                <th>Klantemail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('klanten_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.klantnaam }}</td>
+                <td>{{ entity.klantvoornaam }}</td>
+                <td>{{ entity.klantadres }}</td>
+                <td>{{ entity.klanttelefoon }}</td>
+                <td>{{ entity.klantemail }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('klanten_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('klanten_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('klanten_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
