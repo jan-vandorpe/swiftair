@@ -9,27 +9,35 @@
         {% block stylesheets %}   
         <link rel='stylesheet' type="text/css"  href="#"/>
         <link rel='stylesheet' type='text/css' href={{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.css') }} />
+        
+        {% endblock %}
+        
+        {% block scripts %}
 
-        <script src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery.js') }}"></script>
-        <script src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/jquery.validate.min.js') }}"> </script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/additional-methods.min.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/slidesjs-3/jquery.slides.min.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/localization/jquery.ui.datepicker-nl-BE.js')}}"></script> -->
 		
-		<script src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/airline.js') }}"></script>
-		
-		<!-- 
-        <script src="//code.jquery.com/jquery.validate.min.js"></script>
-        <script src="//code.jquery.com/additional-methods.min.js"></script>
-        <script src="//code.jquery.com/jquery.slides.min.js"></script>
-        <script src="//code.jquery.com/jquery.ui.datepicker-nl-BE.js"></script> -->
+		<script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/airline.js') }}"></script>
+	
 
         
         {% endblock %}
+        
+        <style>
+		#vluchtFouten{display:none;}
+		
+		</style>
         
     </head>
     <body>
         {% block body %}
 		<div id="container">
   <div id="kop">
-    <img src="{{ asset('bundles/scrumswiftair/img/2008-vliegtuigje met staartklein.gif') }}" id="koptitel" alt="Swiftair"  /></div>
+    <!-- <img src="{{ asset('bundles/scrumswiftair/img/2008-vliegtuigje met staartklein.gif') }}" id="koptitel" alt="Swiftair"  /></div> -->
   <div id="buik">
     <div id="links">&nbsp;</div>
     <div id="tester" style="display:none">tester element</div>
@@ -37,10 +45,19 @@
         <div id="inhoud">
 <!-- start UL voor tabs -->
           <ul>
+              <li><a href="#welcome">Welkom</a></li>
               <li><a href="#vlucht">Vlucht Boeken</a></li>
               <li><a href="#checkin">Check-in</a></li> 
           </ul>
- <!-- einde UL voor tabs -->         
+ <!-- einde UL voor tabs -->      
+ 		<div id="welcome">
+          <h1>Welkom</h1>
+          <div class='foutBox' id='vluchtFouten'><h2>Fouten</h2><ul></ul></div>
+          <p> Op onze website kan u een vlucht boeken naar uw favoriete bestemming.  </p>
+          <p> Wanneer u reeds een vlucht boekte, kan u via de online check-in vanaf drie dagen voor vertrek online inchecken. </p>
+          <br>
+          <p> Wij wensen u alvast een prettige reis </p>
+        </div>   
         <div id="vlucht">
           <h1>Vlucht boeken</h1>
           <div class='foutBox' id='vluchtFouten'><h2>Fouten</h2><ul></ul></div>
@@ -48,16 +65,31 @@
             <p>
               <label>Land van vertrek:</label>
               <select name="countries" id="countries">
+              <option> </option>
+              <option> BE Brussel </option>
+              <option> BE Oostende </option>
+              <option> BE Charleroi </option>
+              <option> NL Amsterdam </option>
+              <option> NL Eindhoven </option>
               </select>
             </p>
-            <p>
+            <!-- <p>
               <label>Luchthaven</label>
               <select name="airports" id="airports" >
+              
               </select>
-            </p>
+            </p> --> 
             <p>
               <label>naar (luchthavencode)</label>
-              <input type="text" name="destinationairport" id="destinationairport" />
+              <select type="text" name="destinationairport" id="destinationairport" >
+         
+              <option>  </option>
+              <option> Spanje </option>
+              <option> Frankrijk </option>
+              <option> Een mooi eilandje </option>
+              <option> Duitsland </option>
+              <option> Noorwegen </option>
+              </select>
             </p>
             <p>
               
@@ -136,7 +168,7 @@
           </ul>
           <div id="dialog" title="Boekingsreferentie">
               <p>Uw boekingsreferentie vind u op uw electronisch ticket zoals hieronder aangegeven</p>
-              <img src="images/boeking.png"></img>
+              <!-- <img src="images/boeking.png"></img>-->
           </div>
           <form name="frmCheckin" id ="frmCheckin" action="reflect_data.php" method="get">
             <p>

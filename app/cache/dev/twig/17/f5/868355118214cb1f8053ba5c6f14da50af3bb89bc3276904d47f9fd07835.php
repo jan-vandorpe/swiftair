@@ -12,6 +12,7 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'stylesheets' => array($this, 'block_stylesheets'),
+            'scripts' => array($this, 'block_scripts'),
             'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
         );
@@ -34,17 +35,27 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
         ";
         // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 26
+        // line 14
         echo "        
+        ";
+        // line 15
+        $this->displayBlock('scripts', $context, $blocks);
+        // line 29
+        echo "        
+        <style>
+\t\t#vluchtFouten{display:none;}
+\t\t
+\t\t</style>
+        
     </head>
     <body>
         ";
-        // line 29
+        // line 37
         $this->displayBlock('body', $context, $blocks);
-        // line 169
+        // line 201
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 170
+        // line 202
         echo "    </body>
 </html>
 ";
@@ -65,41 +76,60 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
         // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.css"), "html", null, true);
         echo " />
+        
+        ";
+    }
 
-        <script src=\"";
-        // line 13
+    // line 15
+    public function block_scripts($context, array $blocks = array())
+    {
+        // line 16
+        echo "
+        <script type=\"text/javascript\" src=\"";
+        // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery.js"), "html", null, true);
         echo "\"></script>
-        <script src=\"";
-        // line 14
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery-ui.min.js"), "html", null, true);
+        <script type=\"text/javascript\" src=\"";
+        // line 18
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
-\t\t
-\t\t<script src=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/airline.js"), "html", null, true);
+        <script type=\"text/javascript\" src=\"";
+        // line 19
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/jquery.validate.min.js"), "html", null, true);
+        echo "\"> </script>
+        <script type=\"text/javascript\" src=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/additional-methods.min.js"), "html", null, true);
         echo "\"></script>
+        <!-- <script type=\"text/javascript\" src=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/slidesjs-3/jquery.slides.min.js"), "html", null, true);
+        echo "\"></script>
+        <!-- <script type=\"text/javascript\" src=\"";
+        // line 22
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/localization/jquery.ui.datepicker-nl-BE.js"), "html", null, true);
+        echo "\"></script> -->
 \t\t
-\t\t<!-- 
-        <script src=\"//code.jquery.com/jquery.validate.min.js\"></script>
-        <script src=\"//code.jquery.com/additional-methods.min.js\"></script>
-        <script src=\"//code.jquery.com/jquery.slides.min.js\"></script>
-        <script src=\"//code.jquery.com/jquery.ui.datepicker-nl-BE.js\"></script> -->
+\t\t<script type=\"text/javascript\" src=\"";
+        // line 24
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/js/airline.js"), "html", null, true);
+        echo "\"></script>
+\t
 
         
         ";
     }
 
-    // line 29
+    // line 37
     public function block_body($context, array $blocks = array())
     {
-        // line 30
+        // line 38
         echo "\t\t<div id=\"container\">
   <div id=\"kop\">
-    <img src=\"";
-        // line 32
+    <!-- <img src=\"";
+        // line 40
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/scrumswiftair/img/2008-vliegtuigje met staartklein.gif"), "html", null, true);
-        echo "\" id=\"koptitel\" alt=\"Swiftair\"  /></div>
+        echo "\" id=\"koptitel\" alt=\"Swiftair\"  /></div> -->
   <div id=\"buik\">
     <div id=\"links\">&nbsp;</div>
     <div id=\"tester\" style=\"display:none\">tester element</div>
@@ -107,10 +137,19 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
         <div id=\"inhoud\">
 <!-- start UL voor tabs -->
           <ul>
+              <li><a href=\"#welcome\">Welkom</a></li>
               <li><a href=\"#vlucht\">Vlucht Boeken</a></li>
               <li><a href=\"#checkin\">Check-in</a></li> 
           </ul>
- <!-- einde UL voor tabs -->         
+ <!-- einde UL voor tabs -->      
+ \t\t<div id=\"welcome\">
+          <h1>Welkom</h1>
+          <div class='foutBox' id='vluchtFouten'><h2>Fouten</h2><ul></ul></div>
+          <p> Op onze website kan u een vlucht boeken naar uw favoriete bestemming.  </p>
+          <p> Wanneer u reeds een vlucht boekte, kan u via de online check-in vanaf drie dagen voor vertrek online inchecken. </p>
+          <br>
+          <p> Wij wensen u alvast een prettige reis </p>
+        </div>   
         <div id=\"vlucht\">
           <h1>Vlucht boeken</h1>
           <div class='foutBox' id='vluchtFouten'><h2>Fouten</h2><ul></ul></div>
@@ -118,16 +157,31 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
             <p>
               <label>Land van vertrek:</label>
               <select name=\"countries\" id=\"countries\">
+              <option> </option>
+              <option> BE Brussel </option>
+              <option> BE Oostende </option>
+              <option> BE Charleroi </option>
+              <option> NL Amsterdam </option>
+              <option> NL Eindhoven </option>
               </select>
             </p>
-            <p>
+            <!-- <p>
               <label>Luchthaven</label>
               <select name=\"airports\" id=\"airports\" >
+              
               </select>
-            </p>
+            </p> --> 
             <p>
               <label>naar (luchthavencode)</label>
-              <input type=\"text\" name=\"destinationairport\" id=\"destinationairport\" />
+              <select type=\"text\" name=\"destinationairport\" id=\"destinationairport\" >
+         
+              <option>  </option>
+              <option> Spanje </option>
+              <option> Frankrijk </option>
+              <option> Een mooi eilandje </option>
+              <option> Duitsland </option>
+              <option> Noorwegen </option>
+              </select>
             </p>
             <p>
               
@@ -206,7 +260,7 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
           </ul>
           <div id=\"dialog\" title=\"Boekingsreferentie\">
               <p>Uw boekingsreferentie vind u op uw electronisch ticket zoals hieronder aangegeven</p>
-              <img src=\"images/boeking.png\"></img>
+              <!-- <img src=\"images/boeking.png\"></img>-->
           </div>
           <form name=\"frmCheckin\" id =\"frmCheckin\" action=\"reflect_data.php\" method=\"get\">
             <p>
@@ -233,12 +287,12 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
     <div id=\"rechts\">&nbsp;</div>
   </div>
   <!--einde buik-->
-  <div id=\"voet\"> &copy; Sardine Airways | About | Contact </div>
+  <div id=\"voet\"> &copy; Swiftair | About | Contact </div>
 </div>
 \t\t";
     }
 
-    // line 169
+    // line 201
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -250,6 +304,6 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
 
     public function getDebugInfo()
     {
-        return array (  242 => 169,  101 => 32,  97 => 30,  94 => 29,  80 => 16,  75 => 14,  71 => 13,  66 => 11,  60 => 9,  54 => 7,  48 => 170,  45 => 169,  43 => 29,  38 => 26,  36 => 9,  31 => 7,  23 => 1,);
+        return array (  296 => 201,  131 => 40,  127 => 38,  124 => 37,  115 => 24,  110 => 22,  106 => 21,  102 => 20,  98 => 19,  94 => 18,  90 => 17,  87 => 16,  84 => 15,  77 => 11,  71 => 9,  65 => 7,  59 => 202,  56 => 201,  54 => 37,  44 => 29,  42 => 15,  39 => 14,  37 => 9,  32 => 7,  24 => 1,);
     }
 }

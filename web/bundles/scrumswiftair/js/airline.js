@@ -1,7 +1,7 @@
-$(function() {
+jQuery(document).ready(function ($) {
     $.datepicker.setDefaults($.datepicker.regional['nl-BE']);
 //////////////////////////////////////////////////////////////////////////////// Zet inhoud om in tabs
-    $('#inhoud').tabs();
+    $('#inhoud').tabs({ active: 0});
 //////////////////////////////////////////////////////////////////////////////// form reset
     $('#retour').attr('checked', false);
     $('#ticketgoedkoop').attr('checked', false);
@@ -35,19 +35,7 @@ $(function() {
         } 
     });*/
     
-    $('#prent').slidesjs({
-        play: {
-            active: false,
-            auto: true
-        },
-        navigation: {
-            active: false
-        },
-        pagination: {
-            active: false
-        },
-        height: 240
-    });
+ 
 //////////////////////////////////////////////////////////////////////////////// vul landen dropdown in
     $('#countries').append("<option value=''>--- Kies land ---</option>");//default optie
     $.getJSON("php/ajax_json_countriesviaarray.php", function(data) {
