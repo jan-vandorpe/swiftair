@@ -24,32 +24,38 @@ class Passagiers
     /**
      * @var string
      *
-     * @ORM\Column(name="passagiernaam", type="string", length=255)
+     * @ORM\Column(name="naam", type="string", length=255)
      */
-    private $passagiernaam;
+    private $naam;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="passagiervoornaam", type="string", length=255)
+     * @ORM\Column(name="voornaam", type="string", length=255)
      */
-    private $passagiervoornaam;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="passagierleeftijd", type="integer")
-     */
-    private $passagierleeftijd;
+    private $voornaam;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="passagieradres", type="string", length=255)
+     * @ORM\Column(name="rijksregister", type="string", length=255)
      */
-    private $passagieradres;
+    private $rijksregister;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="geboortedatum", type="date")
+     */
+    private $geboortedatum;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adres", type="string", length=255)
+     */
+    private $adres;
+   
     /**
      * Get id
      *
@@ -150,5 +156,143 @@ class Passagiers
     public function getPassagieradres()
     {
         return $this->passagieradres;
+    }
+
+    /**
+     * Set rijksregister
+     *
+     * @param string $rijksregister
+     * @return Passagiers
+     */
+    public function setRijksregister($rijksregister)
+    {
+        $this->rijksregister = $rijksregister;
+
+        return $this;
+    }
+
+    /**
+     * Get rijksregister
+     *
+     * @return string 
+     */
+    public function getRijksregister()
+    {
+        return $this->rijksregister;
+    }
+
+    /**
+     * Set geboortedatum
+     *
+     * @param \DateTime $geboortedatum
+     * @return Passagiers
+     */
+    public function setGeboortedatum($geboortedatum)
+    {
+        $this->geboortedatum = $geboortedatum;
+
+        return $this;
+    }
+
+    /**
+     * Get geboortedatum
+     *
+     * @return \DateTime 
+     */
+    public function getGeboortedatum()
+    {
+        return $this->geboortedatum;
+    }
+
+    /**
+     * Set bagage
+     *
+     * @param integer $bagage
+     * @return Passagiers
+     */
+    public function setBagage($bagage)
+    {
+        $this->bagage = $bagage;
+
+        return $this;
+    }
+
+    /**
+     * Get bagage
+     *
+     * @return integer 
+     */
+    public function getBagage()
+    {
+        return $this->bagage;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     * @return Passagiers
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string 
+     */
+    public function getNaam()
+    {
+        return $this->naam;
+    }
+
+    /**
+     * Set voornaam
+     *
+     * @param string $voornaam
+     * @return Passagiers
+     */
+    public function setVoornaam($voornaam)
+    {
+        $this->voornaam = $voornaam;
+
+        return $this;
+    }
+
+    /**
+     * Get voornaam
+     *
+     * @return string 
+     */
+    public function getVoornaam()
+    {
+        return $this->voornaam;
+    }
+
+    /**
+     * Set adres
+     *
+     * @param string $adres
+     * @return Passagiers
+     */
+    public function setAdres($adres)
+    {
+        $this->adres = $adres;
+
+        return $this;
+    }
+
+    /**
+     * Get adres
+     *
+     * @return string 
+     */
+    public function getAdres()
+    {
+        return $this->adres;
     }
 }

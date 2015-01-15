@@ -24,9 +24,9 @@ class Landen
     /**
      * @var string
      *
-     * @ORM\Column(name="landnaam", type="string", length=255)
+     * @ORM\Column(name="naam", type="string", length=255)
      */
-    private $landnaam;
+    private $naam;
 
     /**
      * @ORM/OneToMany(targetEntity="Luchthavens", mappedBy="landen")
@@ -80,5 +80,28 @@ class Landen
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     * @return Landen
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string 
+     */
+    public function getNaam()
+    {
+        return $this->naam;
     }
 }

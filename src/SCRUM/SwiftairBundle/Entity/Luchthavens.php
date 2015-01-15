@@ -30,9 +30,9 @@ class Luchthavens
     /**
      * @var string
      *
-     * @ORM\Column(name="luchthavennaam", type="string", length=255)
+     * @ORM\Column(name="naam", type="string", length=255)
      */
-    private $luchthavennaam;
+    private $naam;
 
 
     /**
@@ -102,5 +102,28 @@ class Luchthavens
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     * @return Luchthavens
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string 
+     */
+    public function getNaam()
+    {
+        return $this->naam;
     }
 }

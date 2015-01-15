@@ -31,9 +31,9 @@ class Bestellingen
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="bestellingsdatum", type="date")
+     * @ORM\Column(name="sdatum", type="date")
      */
-    private $bestellingsdatum;
+    private $datum;
 
 
     /**
@@ -90,5 +90,28 @@ class Bestellingen
     public function getBestellingsdatum()
     {
         return $this->bestellingsdatum;
+    }
+
+    /**
+     * Set datum
+     *
+     * @param \DateTime $datum
+     * @return Bestellingen
+     */
+    public function setDatum($datum)
+    {
+        $this->datum = $datum;
+
+        return $this;
+    }
+
+    /**
+     * Get datum
+     *
+     * @return \DateTime 
+     */
+    public function getDatum()
+    {
+        return $this->datum;
     }
 }

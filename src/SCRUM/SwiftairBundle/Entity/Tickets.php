@@ -59,6 +59,20 @@ class Tickets
     /**
      * @var boolean
      *
+     * @ORM\Column(name="bagage", type="boolean")
+     */
+    private $bagage;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="verzekering", type="boolean")
+     */
+    private $verzekering;
+    
+    /**
+     * @var boolean
+     *
      * @ORM\Column(name="annulatie", type="boolean")
      */
     private $annulatie;
@@ -210,5 +224,51 @@ class Tickets
     public function getAnnulatie()
     {
         return $this->annulatie;
+    }
+
+    /**
+     * Set verzekering
+     *
+     * @param integer $verzekering
+     * @return Tickets
+     */
+    public function setVerzekering($verzekering)
+    {
+        $this->verzekering = $verzekering;
+
+        return $this;
+    }
+
+    /**
+     * Get verzekering
+     *
+     * @return integer 
+     */
+    public function getVerzekering()
+    {
+        return $this->verzekering;
+    }
+
+    /**
+     * Set bagage
+     *
+     * @param boolean $bagage
+     * @return Tickets
+     */
+    public function setBagage($bagage)
+    {
+        $this->bagage = $bagage;
+
+        return $this;
+    }
+
+    /**
+     * Get bagage
+     *
+     * @return boolean 
+     */
+    public function getBagage()
+    {
+        return $this->bagage;
     }
 }

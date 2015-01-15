@@ -24,9 +24,9 @@ class Klasses
     /**
      * @var string
      *
-     * @ORM\Column(name="klassenaam", type="string", length=255)
+     * @ORM\Column(name="naam", type="string", length=255)
      */
-    private $klassenaam;
+    private $naam;
 
 
     /**
@@ -60,5 +60,28 @@ class Klasses
     public function getKlassenaam()
     {
         return $this->klassenaam;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     * @return Klasses
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string 
+     */
+    public function getNaam()
+    {
+        return $this->naam;
     }
 }

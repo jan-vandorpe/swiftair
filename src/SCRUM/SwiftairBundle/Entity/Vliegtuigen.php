@@ -24,9 +24,9 @@ class Vliegtuigen
     /**
      * @var string
      *
-     * @ORM\Column(name="vliegtuignaam", type="string", length=50)
+     * @ORM\Column(name="naam", type="string", length=50)
      */
-    private $vliegtuignaam;
+    private $naam;
 
 
     /**
@@ -60,5 +60,28 @@ class Vliegtuigen
     public function getVliegtuignaam()
     {
         return $this->vliegtuignaam;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     * @return Vliegtuigen
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string 
+     */
+    public function getNaam()
+    {
+        return $this->naam;
     }
 }
