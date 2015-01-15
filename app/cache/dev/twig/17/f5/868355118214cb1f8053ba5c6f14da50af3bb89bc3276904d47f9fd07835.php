@@ -233,7 +233,7 @@ class __TwigTemplate_17f5868355118214cb1f8053ba5c6f14da50af3bb89bc3276904d47f9fd
     <div id=\"rechts\">&nbsp;</div>
   </div>
   <!--einde buik-->
-  <div id=\"voet\"> &copy; Sardine Airways | About | Contact </div>
+  <div id=\"voet\"> &copy; Swiftair | About | Contact </div>
 </div>
 \t\t";
     }

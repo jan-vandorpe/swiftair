@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Capaciteit
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="SCRUM\SwiftairBundle\Entity\CapaciteitRepository")
+ * @ORM\Entity(repositoryClass="SCRUM\SwiftairBundle\Entity\CapaciteitenRepository")
  */
 class Capaciteiten
 {

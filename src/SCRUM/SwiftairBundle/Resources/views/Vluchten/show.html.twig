@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Vluchten</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Vertrekhavenid</th>
+                <td>{{ entity.vertrekhavenid }}</td>
+            </tr>
+            <tr>
+                <th>Aankomsthavenid</th>
+                <td>{{ entity.aankomsthavenid }}</td>
+            </tr>
+            <tr>
+                <th>Vliegtuigid</th>
+                <td>{{ entity.vliegtuigid }}</td>
+            </tr>
+            <tr>
+                <th>Vertrekdatum</th>
+                <td>{{ entity.vertrekdatum|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Aankomstdatum</th>
+                <td>{{ entity.aankomstdatum|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('vluchten') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('vluchten_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -6,6 +6,6 @@ scrum_swiftair_index:
     path: /
     defaults: { _controller: SCRUMSwiftairBundle:Index:index }
 
-scrum_swiftair_temp:
-    path: /temp
-    defaults: { _controller: SCRUMSwiftairBundle:Temp:index }   
+scrum_swiftair_CRUD:
+    resource: "@SCRUMSwiftairBundle/Controller/"
+    type: annotation
