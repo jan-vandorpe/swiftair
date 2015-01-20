@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.slogan {
+	
+	font-size:1.5em;
+	color:#3975a1;
+	}
+	
+	
+.jumbotron {
+	background-image:url(../images/Banner/dubai.jpg);
+	background-size:contain;
+	height: 20em;
+	
+	
+	
+	}	
