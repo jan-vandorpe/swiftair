@@ -115,4 +115,8 @@ class Luchthavens
     {
         return $this->landid;
     }
+    
+    public function __toString() {
+        return $this->naam;
+    }
 }

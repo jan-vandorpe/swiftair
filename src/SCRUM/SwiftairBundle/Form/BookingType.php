@@ -15,7 +15,6 @@ class BookingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id')
             ->add('klanten', 'collection', array('type' => new KlantenType()))
             ->add('passagiers', 'collection', array('type' => new PassagiersType(), 'allow_add' => true))
             ->add('submit', 'submit', array(

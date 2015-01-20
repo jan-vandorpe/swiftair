@@ -4,6 +4,7 @@ namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use SCRUM\SwiftairBundle\Entity\Luchthavens;
 
 /**
  * Vluchten
@@ -190,5 +191,9 @@ class Vluchten
     public function getAankomsthavenid()
     {
         return $this->aankomsthavenid;
+    }
+    
+    public function __toString() {
+        return $this->vertrekhavenid->getNaam() . " => " . $this->aankomsthavenid->getNaam();
     }
 }

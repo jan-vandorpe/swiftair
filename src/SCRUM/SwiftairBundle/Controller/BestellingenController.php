@@ -17,7 +17,6 @@ use SCRUM\SwiftairBundle\Form\BestellingenType;
  */
 class BestellingenController extends Controller
 {
-
     /**
      * Lists all Bestellingen entities.
      *
@@ -35,6 +34,7 @@ class BestellingenController extends Controller
             'entities' => $entities,
         );
     }
+    
     /**
      * Creates a new Bestellingen entity.
      *
@@ -169,6 +169,7 @@ class BestellingenController extends Controller
 
         return $form;
     }
+    
     /**
      * Edits an existing Bestellingen entity.
      *
@@ -202,6 +203,7 @@ class BestellingenController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+    
     /**
      * Deletes a Bestellingen entity.
      *

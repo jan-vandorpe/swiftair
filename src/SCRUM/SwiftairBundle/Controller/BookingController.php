@@ -32,10 +32,9 @@ class BookingController extends Controller {
         $form = $this->createForm(new BookingType(), $booking);
         $form->handleRequest($request);
         
-//        if ($form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist
-//        }
+        if ($form->isValid()) {
+            exit (\Doctrine\Common\Util\Debug::dump($booking));
+        }
 
         return $this->render('SCRUMSwiftairBundle:Booking:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to));
     }

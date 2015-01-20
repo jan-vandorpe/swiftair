@@ -78,11 +78,6 @@ class Klasses
     }
     
     public function __toString() {
-        if ($this->naam == "") {
-            return "Vliegtuig";
-        }
-        else {
-            return $this->naam;
-        }
+        return $this->naam;
     }
 }
