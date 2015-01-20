@@ -10,20 +10,24 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Passagiernaam</th>
-                <td>{{ entity.passagiernaam }}</td>
+                <th>Naam</th>
+                <td>{{ entity.naam }}</td>
             </tr>
             <tr>
-                <th>Passagiervoornaam</th>
-                <td>{{ entity.passagiervoornaam }}</td>
+                <th>Voornaam</th>
+                <td>{{ entity.voornaam }}</td>
             </tr>
             <tr>
-                <th>Passagierleeftijd</th>
-                <td>{{ entity.passagierleeftijd }}</td>
+                <th>Adres</th>
+                <td>{{ entity.adres }}</td>
             </tr>
             <tr>
-                <th>Passagieradres</th>
-                <td>{{ entity.passagieradres }}</td>
+                <th>Rijksregister</th>
+                <td>{{ entity.rijksregister }}</td>
+            </tr>
+            <tr>
+                <th>Geboortedatum</th>
+                <td>{{ entity.geboortedatum|date('Y-m-d H:i:s') }}</td>
             </tr>
         </tbody>
     </table>

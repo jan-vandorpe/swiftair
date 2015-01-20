@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Capaciteiten</h1>
+    <h1>Luchthavens</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,23 +10,17 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Capaciteit</th>
-                <td>{{ entity.capaciteit }}</td>
+                <th>Naam</th>
+                <td>{{ entity.naam }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('capaciteiten') }}">
+        <a href="{{ path('luchthavens') }}">
             Back to the list
         </a>
     </li>
-    <li>
-        <a href="{{ path('capaciteiten_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

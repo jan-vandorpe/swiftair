@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Vliegtuigen
@@ -28,6 +29,18 @@ class Vliegtuigen
      */
     private $naam;
 
+    /**
+     * @ORM/OneToMany(targetEntity="Capaciteiten", mappedBy="vliegtuigen")
+     * @ORM/OneToMany(targetEntity="Vluchten", mappedBy="vliegtuigen")
+     */
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->capaciteiten = new ArrayCollection();
+        $this->vliegtuigen = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -37,29 +50,6 @@ class Vliegtuigen
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set vliegtuignaam
-     *
-     * @param string $vliegtuignaam
-     * @return Vliegtuigen
-     */
-    public function setVliegtuignaam($vliegtuignaam)
-    {
-        $this->vliegtuignaam = $vliegtuignaam;
-
-        return $this;
-    }
-
-    /**
-     * Get vliegtuignaam
-     *
-     * @return string 
-     */
-    public function getVliegtuignaam()
-    {
-        return $this->vliegtuignaam;
     }
 
     /**
@@ -82,6 +72,10 @@ class Vliegtuigen
      */
     public function getNaam()
     {
+        return $this->naam;
+    }
+    
+    public function __toString() {
         return $this->naam;
     }
 }

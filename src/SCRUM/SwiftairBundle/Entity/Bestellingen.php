@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Bestellingen
@@ -22,19 +23,28 @@ class Bestellingen
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="klantid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Klanten", inversedBy="bestellingen")
+     * @ORM\JoinColumn(name="klantid", referencedColumnName="id")
      */
-    private $klantid;
+    protected $klantid;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="sdatum", type="date")
+     * @ORM\Column(name="datum", type="date")
      */
     private $datum;
 
+    /**
+     * @ORM/OneToMany(targetEntity="Tickets", mappedBy="bestellingen")
+     */
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->tickets = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -44,52 +54,6 @@ class Bestellingen
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set klantid
-     *
-     * @param integer $klantid
-     * @return Bestellingen
-     */
-    public function setKlantid($klantid)
-    {
-        $this->klantid = $klantid;
-
-        return $this;
-    }
-
-    /**
-     * Get klantid
-     *
-     * @return integer 
-     */
-    public function getKlantid()
-    {
-        return $this->klantid;
-    }
-
-    /**
-     * Set bestellingsdatum
-     *
-     * @param \DateTime $bestellingsdatum
-     * @return Bestellingen
-     */
-    public function setBestellingsdatum($bestellingsdatum)
-    {
-        $this->bestellingsdatum = $bestellingsdatum;
-
-        return $this;
-    }
-
-    /**
-     * Get bestellingsdatum
-     *
-     * @return \DateTime 
-     */
-    public function getBestellingsdatum()
-    {
-        return $this->bestellingsdatum;
     }
 
     /**
@@ -113,5 +77,28 @@ class Bestellingen
     public function getDatum()
     {
         return $this->datum;
+    }
+
+    /**
+     * Set klantid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Klanten $klantid
+     * @return Bestellingen
+     */
+    public function setKlantid(\SCRUM\SwiftairBundle\Entity\Klanten $klantid = null)
+    {
+        $this->klantid = $klantid;
+
+        return $this;
+    }
+
+    /**
+     * Get klantid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Klanten 
+     */
+    public function getKlantid()
+    {
+        return $this->klantid;
     }
 }

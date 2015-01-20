@@ -15,8 +15,8 @@ class BestellingenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('datum')
             ->add('klantid')
-            ->add('bestellingsdatum')
         ;
     }
     

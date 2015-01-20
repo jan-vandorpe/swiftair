@@ -15,8 +15,9 @@ class CapaciteitenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('klasseid')
             ->add('capaciteit')
+            ->add('vliegtuigid')
+            ->add('klasseid')
         ;
     }
     

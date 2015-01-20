@@ -15,11 +15,12 @@ class KlantenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('klantnaam')
-            ->add('klantvoornaam')
-            ->add('klantadres')
-            ->add('klanttelefoon')
-            ->add('klantemail')
+            ->add('naam')
+            ->add('voornaam')
+            ->add('adres')
+            ->add('telefoon')
+            ->add('email')
+            ->add('kredietkaart')
         ;
     }
     

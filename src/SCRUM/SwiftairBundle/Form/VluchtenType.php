@@ -15,11 +15,11 @@ class VluchtenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('vertrekdatum')
+            ->add('aankomstdatum')
+            ->add('vliegtuigid')
             ->add('vertrekhavenid')
             ->add('aankomsthavenid')
-            ->add('vliegtuigid')
-            ->add('vertrekdatum', 'date', array('input' => 'timestamp', 'widget' => 'choice'))
-            ->add('aankomstdatum', 'date', array('input' => 'timestamp', 'widget' => 'choice'))
         ;
     }
     

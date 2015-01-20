@@ -7,8 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Klantid</th>
-                <th>Bestellingsdatum</th>
+                <th>Datum</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,8 +15,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('bestellingen_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.klantid }}</td>
-                <td>{% if entity.bestellingsdatum %}{{ entity.bestellingsdatum|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datum %}{{ entity.datum|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>

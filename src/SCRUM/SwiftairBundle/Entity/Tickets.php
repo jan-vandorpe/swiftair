@@ -22,32 +22,28 @@ class Tickets
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="bestellingsid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Bestellingen", inversedBy="tickets")
+     * @ORM\JoinColumn(name="bestellingid", referencedColumnName="id")
      */
-    private $bestellingsid;
+    protected $bestellingid;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="passagierid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Passagiers", inversedBy="tickets")
+     * @ORM\JoinColumn(name="passagierid", referencedColumnName="id")
      */
-    private $passagierid;
+    protected $passagierid;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="vluchtid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Vluchten", inversedBy="tickets")
+     * @ORM\JoinColumn(name="vluchtid", referencedColumnName="id")
      */
-    private $vluchtid;
+    protected $vluchtid;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="klasseid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Klasses", inversedBy="tickets")
+     * @ORM\JoinColumn(name="klasseid", referencedColumnName="id")
      */
-    private $klasseid;
+    protected $klasseid;
 
     /**
      * @var integer
@@ -77,7 +73,6 @@ class Tickets
      */
     private $annulatie;
 
-
     /**
      * Get id
      *
@@ -86,98 +81,6 @@ class Tickets
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set bestellingsid
-     *
-     * @param integer $bestellingsid
-     * @return Tickets
-     */
-    public function setBestellingsid($bestellingsid)
-    {
-        $this->bestellingsid = $bestellingsid;
-
-        return $this;
-    }
-
-    /**
-     * Get bestellingsid
-     *
-     * @return integer 
-     */
-    public function getBestellingsid()
-    {
-        return $this->bestellingsid;
-    }
-
-    /**
-     * Set passagierid
-     *
-     * @param integer $passagierid
-     * @return Tickets
-     */
-    public function setPassagierid($passagierid)
-    {
-        $this->passagierid = $passagierid;
-
-        return $this;
-    }
-
-    /**
-     * Get passagierid
-     *
-     * @return integer 
-     */
-    public function getPassagierid()
-    {
-        return $this->passagierid;
-    }
-
-    /**
-     * Set vluchtid
-     *
-     * @param integer $vluchtid
-     * @return Tickets
-     */
-    public function setVluchtid($vluchtid)
-    {
-        $this->vluchtid = $vluchtid;
-
-        return $this;
-    }
-
-    /**
-     * Get vluchtid
-     *
-     * @return integer 
-     */
-    public function getVluchtid()
-    {
-        return $this->vluchtid;
-    }
-
-    /**
-     * Set klasseid
-     *
-     * @param integer $klasseid
-     * @return Tickets
-     */
-    public function setKlasseid($klasseid)
-    {
-        $this->klasseid = $klasseid;
-
-        return $this;
-    }
-
-    /**
-     * Get klasseid
-     *
-     * @return integer 
-     */
-    public function getKlasseid()
-    {
-        return $this->klasseid;
     }
 
     /**
@@ -204,6 +107,52 @@ class Tickets
     }
 
     /**
+     * Set bagage
+     *
+     * @param boolean $bagage
+     * @return Tickets
+     */
+    public function setBagage($bagage)
+    {
+        $this->bagage = $bagage;
+
+        return $this;
+    }
+
+    /**
+     * Get bagage
+     *
+     * @return boolean 
+     */
+    public function getBagage()
+    {
+        return $this->bagage;
+    }
+
+    /**
+     * Set verzekering
+     *
+     * @param boolean $verzekering
+     * @return Tickets
+     */
+    public function setVerzekering($verzekering)
+    {
+        $this->verzekering = $verzekering;
+
+        return $this;
+    }
+
+    /**
+     * Get verzekering
+     *
+     * @return boolean 
+     */
+    public function getVerzekering()
+    {
+        return $this->verzekering;
+    }
+
+    /**
      * Set annulatie
      *
      * @param boolean $annulatie
@@ -227,48 +176,94 @@ class Tickets
     }
 
     /**
-     * Set verzekering
+     * Set bestellingid
      *
-     * @param integer $verzekering
+     * @param \SCRUM\SwiftairBundle\Entity\Bestellingen $bestellingid
      * @return Tickets
      */
-    public function setVerzekering($verzekering)
+    public function setBestellingid(\SCRUM\SwiftairBundle\Entity\Bestellingen $bestellingid = null)
     {
-        $this->verzekering = $verzekering;
+        $this->bestellingid = $bestellingid;
 
         return $this;
     }
 
     /**
-     * Get verzekering
+     * Get bestellingid
      *
-     * @return integer 
+     * @return \SCRUM\SwiftairBundle\Entity\Bestellingen 
      */
-    public function getVerzekering()
+    public function getBestellingid()
     {
-        return $this->verzekering;
+        return $this->bestellingid;
     }
 
     /**
-     * Set bagage
+     * Set passagierid
      *
-     * @param boolean $bagage
+     * @param \SCRUM\SwiftairBundle\Entity\Passagiers $passagierid
      * @return Tickets
      */
-    public function setBagage($bagage)
+    public function setPassagierid(\SCRUM\SwiftairBundle\Entity\Passagiers $passagierid = null)
     {
-        $this->bagage = $bagage;
+        $this->passagierid = $passagierid;
 
         return $this;
     }
 
     /**
-     * Get bagage
+     * Get passagierid
      *
-     * @return boolean 
+     * @return \SCRUM\SwiftairBundle\Entity\Passagiers 
      */
-    public function getBagage()
+    public function getPassagierid()
     {
-        return $this->bagage;
+        return $this->passagierid;
+    }
+
+    /**
+     * Set vluchtid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Vluchten $vluchtid
+     * @return Tickets
+     */
+    public function setVluchtid(\SCRUM\SwiftairBundle\Entity\Vluchten $vluchtid = null)
+    {
+        $this->vluchtid = $vluchtid;
+
+        return $this;
+    }
+
+    /**
+     * Get vluchtid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Vluchten 
+     */
+    public function getVluchtid()
+    {
+        return $this->vluchtid;
+    }
+
+    /**
+     * Set klasseid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Klasses $klasseid
+     * @return Tickets
+     */
+    public function setKlasseid(\SCRUM\SwiftairBundle\Entity\Klasses $klasseid = null)
+    {
+        $this->klasseid = $klasseid;
+
+        return $this;
+    }
+
+    /**
+     * Get klasseid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Klasses 
+     */
+    public function getKlasseid()
+    {
+        return $this->klasseid;
     }
 }

@@ -7,10 +7,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Passagiernaam</th>
-                <th>Passagiervoornaam</th>
-                <th>Passagierleeftijd</th>
-                <th>Passagieradres</th>
+                <th>Naam</th>
+                <th>Voornaam</th>
+                <th>Adres</th>
+                <th>Rijksregister</th>
+                <th>Geboortedatum</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,10 +19,11 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('passagiers_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.passagiernaam }}</td>
-                <td>{{ entity.passagiervoornaam }}</td>
-                <td>{{ entity.passagierleeftijd }}</td>
-                <td>{{ entity.passagieradres }}</td>
+                <td>{{ entity.naam }}</td>
+                <td>{{ entity.voornaam }}</td>
+                <td>{{ entity.adres }}</td>
+                <td>{{ entity.rijksregister }}</td>
+                <td>{% if entity.geboortedatum %}{{ entity.geboortedatum|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>

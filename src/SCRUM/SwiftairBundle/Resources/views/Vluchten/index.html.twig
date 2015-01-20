@@ -7,9 +7,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Vertrekhavenid</th>
-                <th>Aankomsthavenid</th>
-                <th>Vliegtuigid</th>
                 <th>Vertrekdatum</th>
                 <th>Aankomstdatum</th>
                 <th>Actions</th>
@@ -19,9 +16,6 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('vluchten_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.vertrekhavenid }}</td>
-                <td>{{ entity.aankomsthavenid }}</td>
-                <td>{{ entity.vliegtuigid }}</td>
                 <td>{% if entity.vertrekdatum %}{{ entity.vertrekdatum|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.aankomstdatum %}{{ entity.aankomstdatum|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>

@@ -20,13 +20,18 @@ class Capaciteiten
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Vliegtuigen", inversedBy="capaciteiten")
+     * @ORM\JoinColumn(name="vliegtuigid", referencedColumnName="id")
+     */
+    protected $vliegtuigid;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="klasseid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Klasses", inversedBy="capaciteiten")
+     * @ORM\JoinColumn(name="klasseid", referencedColumnName="id")
      */
-    private $klasseid;
+    protected $klasseid;
 
     /**
      * @var integer
@@ -34,7 +39,6 @@ class Capaciteiten
      * @ORM\Column(name="capaciteit", type="integer")
      */
     private $capaciteit;
-
 
     /**
      * Get id
@@ -47,33 +51,10 @@ class Capaciteiten
     }
 
     /**
-     * Set klasseid
-     *
-     * @param integer $klasseid
-     * @return Capaciteit
-     */
-    public function setKlasseid($klasseid)
-    {
-        $this->klasseid = $klasseid;
-
-        return $this;
-    }
-
-    /**
-     * Get klasseid
-     *
-     * @return integer 
-     */
-    public function getKlasseid()
-    {
-        return $this->klasseid;
-    }
-
-    /**
      * Set capaciteit
      *
      * @param integer $capaciteit
-     * @return Capaciteit
+     * @return Capaciteiten
      */
     public function setCapaciteit($capaciteit)
     {
@@ -90,5 +71,51 @@ class Capaciteiten
     public function getCapaciteit()
     {
         return $this->capaciteit;
+    }
+
+    /**
+     * Set vliegtuigid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Vliegtuigen $vliegtuigid
+     * @return Capaciteiten
+     */
+    public function setVliegtuigid(\SCRUM\SwiftairBundle\Entity\Vliegtuigen $vliegtuigid = null)
+    {
+        $this->vliegtuigid = $vliegtuigid;
+
+        return $this;
+    }
+
+    /**
+     * Get vliegtuigid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Vliegtuigen 
+     */
+    public function getVliegtuigid()
+    {
+        return $this->vliegtuigid;
+    }
+
+    /**
+     * Set klasseid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Klasses $klasseid
+     * @return Capaciteiten
+     */
+    public function setKlasseid(\SCRUM\SwiftairBundle\Entity\Klasses $klasseid = null)
+    {
+        $this->klasseid = $klasseid;
+
+        return $this;
+    }
+
+    /**
+     * Get klasseid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Klasses 
+     */
+    public function getKlasseid()
+    {
+        return $this->klasseid;
     }
 }

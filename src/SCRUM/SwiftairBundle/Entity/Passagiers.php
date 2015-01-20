@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Passagiers
@@ -38,6 +39,13 @@ class Passagiers
     /**
      * @var string
      *
+     * @ORM\Column(name="adres", type="string", length=255)
+     */
+    private $adres;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="rijksregister", type="string", length=255)
      */
     private $rijksregister;
@@ -50,12 +58,16 @@ class Passagiers
     private $geboortedatum;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="adres", type="string", length=255)
+     * @ORM/OneToMany(targetEntity="Tickets", mappedBy="passagiers")
      */
-    private $adres;
-   
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->tickets = new ArrayCollection();
+    }
+
     /**
      * Get id
      *
@@ -64,167 +76,6 @@ class Passagiers
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set passagiernaam
-     *
-     * @param string $passagiernaam
-     * @return Passagiers
-     */
-    public function setPassagiernaam($passagiernaam)
-    {
-        $this->passagiernaam = $passagiernaam;
-
-        return $this;
-    }
-
-    /**
-     * Get passagiernaam
-     *
-     * @return string 
-     */
-    public function getPassagiernaam()
-    {
-        return $this->passagiernaam;
-    }
-
-    /**
-     * Set passagiervoornaam
-     *
-     * @param string $passagiervoornaam
-     * @return Passagiers
-     */
-    public function setPassagiervoornaam($passagiervoornaam)
-    {
-        $this->passagiervoornaam = $passagiervoornaam;
-
-        return $this;
-    }
-
-    /**
-     * Get passagiervoornaam
-     *
-     * @return string 
-     */
-    public function getPassagiervoornaam()
-    {
-        return $this->passagiervoornaam;
-    }
-
-    /**
-     * Set passagierleeftijd
-     *
-     * @param integer $passagierleeftijd
-     * @return Passagiers
-     */
-    public function setPassagierleeftijd($passagierleeftijd)
-    {
-        $this->passagierleeftijd = $passagierleeftijd;
-
-        return $this;
-    }
-
-    /**
-     * Get passagierleeftijd
-     *
-     * @return integer 
-     */
-    public function getPassagierleeftijd()
-    {
-        return $this->passagierleeftijd;
-    }
-
-    /**
-     * Set passagieradres
-     *
-     * @param string $passagieradres
-     * @return Passagiers
-     */
-    public function setPassagieradres($passagieradres)
-    {
-        $this->passagieradres = $passagieradres;
-
-        return $this;
-    }
-
-    /**
-     * Get passagieradres
-     *
-     * @return string 
-     */
-    public function getPassagieradres()
-    {
-        return $this->passagieradres;
-    }
-
-    /**
-     * Set rijksregister
-     *
-     * @param string $rijksregister
-     * @return Passagiers
-     */
-    public function setRijksregister($rijksregister)
-    {
-        $this->rijksregister = $rijksregister;
-
-        return $this;
-    }
-
-    /**
-     * Get rijksregister
-     *
-     * @return string 
-     */
-    public function getRijksregister()
-    {
-        return $this->rijksregister;
-    }
-
-    /**
-     * Set geboortedatum
-     *
-     * @param \DateTime $geboortedatum
-     * @return Passagiers
-     */
-    public function setGeboortedatum($geboortedatum)
-    {
-        $this->geboortedatum = $geboortedatum;
-
-        return $this;
-    }
-
-    /**
-     * Get geboortedatum
-     *
-     * @return \DateTime 
-     */
-    public function getGeboortedatum()
-    {
-        return $this->geboortedatum;
-    }
-
-    /**
-     * Set bagage
-     *
-     * @param integer $bagage
-     * @return Passagiers
-     */
-    public function setBagage($bagage)
-    {
-        $this->bagage = $bagage;
-
-        return $this;
-    }
-
-    /**
-     * Get bagage
-     *
-     * @return integer 
-     */
-    public function getBagage()
-    {
-        return $this->bagage;
     }
 
     /**
@@ -294,5 +145,51 @@ class Passagiers
     public function getAdres()
     {
         return $this->adres;
+    }
+
+    /**
+     * Set rijksregister
+     *
+     * @param string $rijksregister
+     * @return Passagiers
+     */
+    public function setRijksregister($rijksregister)
+    {
+        $this->rijksregister = $rijksregister;
+
+        return $this;
+    }
+
+    /**
+     * Get rijksregister
+     *
+     * @return string 
+     */
+    public function getRijksregister()
+    {
+        return $this->rijksregister;
+    }
+
+    /**
+     * Set geboortedatum
+     *
+     * @param \DateTime $geboortedatum
+     * @return Passagiers
+     */
+    public function setGeboortedatum($geboortedatum)
+    {
+        $this->geboortedatum = $geboortedatum;
+
+        return $this;
+    }
+
+    /**
+     * Get geboortedatum
+     *
+     * @return \DateTime 
+     */
+    public function getGeboortedatum()
+    {
+        return $this->geboortedatum;
     }
 }

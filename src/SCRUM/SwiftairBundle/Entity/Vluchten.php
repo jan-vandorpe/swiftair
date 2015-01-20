@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Vluchten
@@ -20,27 +21,24 @@ class Vluchten
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Vliegtuigen", inversedBy="vluchten")
+     * @ORM\JoinColumn(name="vliegtuigid", referencedColumnName="id")
+     */
+    protected $vliegtuigid;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Luchthavens", inversedBy="vluchten")
+     * @ORM\JoinColumn(name="vertrekhavenid", referencedColumnName="id")
+     */
+    protected $vertrekhavenid;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="vertrekhavenid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Luchthavens", inversedBy="vluchten")
+     * @ORM\JoinColumn(name="aankomsthavenid", referencedColumnName="id")
      */
-    private $vertrekhavenid;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="aankomsthavenid", type="integer")
-     */
-    private $aankomsthavenid;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="vliegtuigid", type="integer")
-     */
-    private $vliegtuigid;
+    protected $aankomsthavenid;
 
     /**
      * @var \DateTime
@@ -56,6 +54,18 @@ class Vluchten
      */
     private $aankomstdatum;
 
+    /**
+     * @ORM/OneToMany(targetEntity="Prijzen", mappedBy="vluchten")
+     * @ORM/OneToMany(targetEntity="Tickets", mappedBy="vluchten")
+     */
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->prijzen = new ArrayCollection();
+        $this->tickets = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -65,75 +75,6 @@ class Vluchten
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set vertrekhavenid
-     *
-     * @param integer $vertrekhavenid
-     * @return Vluchten
-     */
-    public function setVertrekhavenid($vertrekhavenid)
-    {
-        $this->vertrekhavenid = $vertrekhavenid;
-
-        return $this;
-    }
-
-    /**
-     * Get vertrekhavenid
-     *
-     * @return integer 
-     */
-    public function getVertrekhavenid()
-    {
-        return $this->vertrekhavenid;
-    }
-
-    /**
-     * Set aankomsthavenid
-     *
-     * @param integer $aankomsthavenid
-     * @return Vluchten
-     */
-    public function setAankomsthavenid($aankomsthavenid)
-    {
-        $this->aankomsthavenid = $aankomsthavenid;
-
-        return $this;
-    }
-
-    /**
-     * Get aankomsthavenid
-     *
-     * @return integer 
-     */
-    public function getAankomsthavenid()
-    {
-        return $this->aankomsthavenid;
-    }
-
-    /**
-     * Set vliegtuigid
-     *
-     * @param integer $vliegtuigid
-     * @return Vluchten
-     */
-    public function setVliegtuigid($vliegtuigid)
-    {
-        $this->vliegtuigid = $vliegtuigid;
-
-        return $this;
-    }
-
-    /**
-     * Get vliegtuigid
-     *
-     * @return integer 
-     */
-    public function getVliegtuigid()
-    {
-        return $this->vliegtuigid;
     }
 
     /**
@@ -180,5 +121,74 @@ class Vluchten
     public function getAankomstdatum()
     {
         return $this->aankomstdatum;
+    }
+
+    /**
+     * Set vliegtuigid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Vliegtuigen $vliegtuigid
+     * @return Vluchten
+     */
+    public function setVliegtuigid(\SCRUM\SwiftairBundle\Entity\Vliegtuigen $vliegtuigid = null)
+    {
+        $this->vliegtuigid = $vliegtuigid;
+
+        return $this;
+    }
+
+    /**
+     * Get vliegtuigid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Vliegtuigen 
+     */
+    public function getVliegtuigid()
+    {
+        return $this->vliegtuigid;
+    }
+
+    /**
+     * Set vertrekhavenid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Luchthavens $vertrekhavenid
+     * @return Vluchten
+     */
+    public function setVertrekhavenid(\SCRUM\SwiftairBundle\Entity\Luchthavens $vertrekhavenid = null)
+    {
+        $this->vertrekhavenid = $vertrekhavenid;
+
+        return $this;
+    }
+
+    /**
+     * Get vertrekhavenid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Luchthavens 
+     */
+    public function getVertrekhavenid()
+    {
+        return $this->vertrekhavenid;
+    }
+
+    /**
+     * Set aankomsthavenid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Luchthavens $aankomsthavenid
+     * @return Vluchten
+     */
+    public function setAankomsthavenid(\SCRUM\SwiftairBundle\Entity\Luchthavens $aankomsthavenid = null)
+    {
+        $this->aankomsthavenid = $aankomsthavenid;
+
+        return $this;
+    }
+
+    /**
+     * Get aankomsthavenid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Luchthavens 
+     */
+    public function getAankomsthavenid()
+    {
+        return $this->aankomsthavenid;
     }
 }
