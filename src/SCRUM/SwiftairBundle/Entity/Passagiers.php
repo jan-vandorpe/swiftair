@@ -56,6 +56,9 @@ class Passagiers
      * @ORM\Column(name="geboortedatum", type="date")
      */
     private $geboortedatum;
+    
+    private $bagage;
+    private $verzekering;
 
     /**
      * @ORM/OneToMany(targetEntity="Tickets", mappedBy="passagiers")
@@ -191,5 +194,23 @@ class Passagiers
     public function getGeboortedatum()
     {
         return $this->geboortedatum;
+    }
+    
+    public function setBagage($bagage) {
+        $this->bagage = $bagage;
+        return $this;
+    }
+    
+    public function getBagage() {
+        return $this->bagage;
+    }
+    
+    public function setVerzekering($verzekering) {
+        $this->verzekering = $verzekering;
+        return $this;
+    }
+    
+    public function getVerzekering() {
+        return $this->verzekering;
     }
 }
