@@ -38,6 +38,7 @@
         
     <div id="step3">
         <h2>Passagiers:</h2>
+        <button id="klantgegevens">Gebruik klantgegevens</button>
         <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
             {% for passagier in form.passagiers %}
                 <li>

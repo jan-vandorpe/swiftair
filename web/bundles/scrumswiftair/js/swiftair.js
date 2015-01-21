@@ -18,6 +18,12 @@ $(function ($) {
         e.preventDefault();
         addPassagierForm($collectionHolder, $newLinkLi);
     });
+    
+    $('#klantgegevens').click(function() {
+        $('#scrum_swiftairbundle_bestellingen_passagiers_0_naam').val($('#scrum_swiftairbundle_bestellingen_klanten_0_naam').val());
+        $('#scrum_swiftairbundle_bestellingen_passagiers_0_voornaam').val($('#scrum_swiftairbundle_bestellingen_klanten_0_voornaam').val());
+        $('#scrum_swiftairbundle_bestellingen_passagiers_0_adres').val($('#scrum_swiftairbundle_bestellingen_klanten_0_adres').val());
+    });
 });
 
 function addPassagierForm($collectionHolder, $newLinkLi) {

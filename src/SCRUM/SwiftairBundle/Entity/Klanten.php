@@ -222,4 +222,8 @@ class Klanten
     {
         return $this->kredietkaart;
     }
+    
+    public function __toString() {
+        return $this->naam;
+    }
 }

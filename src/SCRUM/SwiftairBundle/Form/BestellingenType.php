@@ -15,8 +15,12 @@ class BestellingenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('datum')
-            ->add('klantid')
+            ->add('klanten', 'collection', array('type' => new KlantenType()))
+            ->add('passagiers', 'collection', array('type' => new PassagiersType(), 'allow_add' => true))
+            ->add('submit', 'submit', array(
+                'attr' => array('class' => 'submit'),
+                'label' => "Bevestig"
+            ))
         ;
     }
     

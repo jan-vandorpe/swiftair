@@ -35,6 +35,9 @@ class Bestellingen
      */
     private $datum;
 
+    protected $klanten;
+    protected $passagiers;
+    
     /**
      * @ORM/OneToMany(targetEntity="Tickets", mappedBy="bestellingen")
      */
@@ -43,7 +46,10 @@ class Bestellingen
      * Constructor
      */
     public function __construct() {
+        $this->datum = new \DateTime();
         $this->tickets = new ArrayCollection();
+        $this->passagiers = new ArrayCollection();
+        $this->klanten = new ArrayCollection();
     }
 
     /**
@@ -85,7 +91,7 @@ class Bestellingen
      * @param \SCRUM\SwiftairBundle\Entity\Klanten $klantid
      * @return Bestellingen
      */
-    public function setKlantid(\SCRUM\SwiftairBundle\Entity\Klanten $klantid = null)
+    public function setKlantid($klantid)
     {
         $this->klantid = $klantid;
 
@@ -100,5 +106,13 @@ class Bestellingen
     public function getKlantid()
     {
         return $this->klantid;
+    }
+    
+    public function getKlanten() {
+        return $this->klanten;
+    }
+    
+    public function getPassagiers() {
+        return $this->passagiers;
     }
 }
