@@ -1,6 +1,6 @@
 <?php
 
-/* SensioDistributionBundle:Configurator:final.html.twig */
+/* SensioDistributionBundle::Configurator/final.html.twig */
 class __TwigTemplate_1f7c644a99aaa82dcb323657913541713e21b08a932ee90efb2b92f0d3c47cbe extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -39,7 +39,7 @@ class __TwigTemplate_1f7c644a99aaa82dcb323657913541713e21b08a932ee90efb2b92f0d3c
         <h1>Well done!</h1>
         ";
         // line 7
-        if ((isset($context["is_writable"]) ? $context["is_writable"] : null)) {
+        if ((isset($context["is_writable"]) ? $context["is_writable"] : $this->getContext($context, "is_writable"))) {
             // line 8
             echo "        <h2>Your distribution is configured!</h2>
         ";
@@ -53,16 +53,16 @@ class __TwigTemplate_1f7c644a99aaa82dcb323657913541713e21b08a932ee90efb2b92f0d3c
             <span>
                 ";
         // line 14
-        if ((isset($context["is_writable"]) ? $context["is_writable"] : null)) {
+        if ((isset($context["is_writable"]) ? $context["is_writable"] : $this->getContext($context, "is_writable"))) {
             // line 15
             echo "                    Your parameters.yml file has been overwritten with these parameters (in <em>";
-            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : null), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : $this->getContext($context, "yml_path")), "html", null, true);
             echo "</em>):
                 ";
         } else {
             // line 17
             echo "                    Your parameters.yml file is not writeable! Here are the parameters you can copy and paste in <em>";
-            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : null), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["yml_path"]) ? $context["yml_path"] : $this->getContext($context, "yml_path")), "html", null, true);
             echo "</em>:
                 ";
         }
@@ -72,17 +72,17 @@ class __TwigTemplate_1f7c644a99aaa82dcb323657913541713e21b08a932ee90efb2b92f0d3c
 
         <textarea class=\"symfony-configuration\">";
         // line 22
-        echo twig_escape_filter($this->env, (isset($context["parameters"]) ? $context["parameters"] : null), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["parameters"]) ? $context["parameters"] : $this->getContext($context, "parameters")), "html", null, true);
         echo "</textarea>
 
         ";
         // line 24
-        if ((isset($context["welcome_url"]) ? $context["welcome_url"] : null)) {
+        if ((isset($context["welcome_url"]) ? $context["welcome_url"] : $this->getContext($context, "welcome_url"))) {
             // line 25
             echo "            <ul>
                 <li><a href=\"";
             // line 26
-            echo twig_escape_filter($this->env, (isset($context["welcome_url"]) ? $context["welcome_url"] : null), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["welcome_url"]) ? $context["welcome_url"] : $this->getContext($context, "welcome_url")), "html", null, true);
             echo "\">Go to the Welcome page</a></li>
             </ul>
         ";
@@ -94,7 +94,7 @@ class __TwigTemplate_1f7c644a99aaa82dcb323657913541713e21b08a932ee90efb2b92f0d3c
 
     public function getTemplateName()
     {
-        return "SensioDistributionBundle:Configurator:final.html.twig";
+        return "SensioDistributionBundle::Configurator/final.html.twig";
     }
 
     public function isTraitable()

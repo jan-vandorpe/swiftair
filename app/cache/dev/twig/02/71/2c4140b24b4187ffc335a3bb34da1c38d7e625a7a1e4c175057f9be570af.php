@@ -1,6 +1,6 @@
 <?php
 
-/* SensioDistributionBundle:Configurator:steps.html.twig */
+/* SensioDistributionBundle::Configurator/steps.html.twig */
 class __TwigTemplate_02712c4140b24b4187ffc335a3bb34da1c38d7e625a7a1e4c175057f9be570af extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -20,13 +20,13 @@ class __TwigTemplate_02712c4140b24b4187ffc335a3bb34da1c38d7e625a7a1e4c175057f9be
     ";
         // line 2
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["count"]) ? $context["count"] : null)));
+        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count"))));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
             // line 3
             echo "
       ";
             // line 4
-            if (($context["i"] == ((isset($context["index"]) ? $context["index"] : null) + 1))) {
+            if (($context["i"] == ((isset($context["index"]) ? $context["index"] : $this->getContext($context, "index")) + 1))) {
                 // line 5
                 echo "          <span class=\"selected\">Step ";
                 echo twig_escape_filter($this->env, $context["i"], "html", null, true);
@@ -43,7 +43,7 @@ class __TwigTemplate_02712c4140b24b4187ffc335a3bb34da1c38d7e625a7a1e4c175057f9be
             echo "
       ";
             // line 10
-            if (($context["i"] != (isset($context["count"]) ? $context["count"] : null))) {
+            if (($context["i"] != (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")))) {
                 // line 11
                 echo "        &gt;
       ";
@@ -61,7 +61,7 @@ class __TwigTemplate_02712c4140b24b4187ffc335a3bb34da1c38d7e625a7a1e4c175057f9be
 
     public function getTemplateName()
     {
-        return "SensioDistributionBundle:Configurator:steps.html.twig";
+        return "SensioDistributionBundle::Configurator/steps.html.twig";
     }
 
     public function isTraitable()
