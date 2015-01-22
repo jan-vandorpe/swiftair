@@ -2,22 +2,27 @@
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
         
         <title>{% block title %}Swiftair... Keep Exploring!{% endblock %}</title>
+
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/jquery.validate.min.js') }}"> </script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/additional-methods.min.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/swiftair.js') }}"></script>
         
         {% block stylesheets %}
             <link rel='stylesheet' type='text/css' href={{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.css') }} />
-            <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/jquery.validate.min.js') }}"> </script>
-            <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/additional-methods.min.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/swiftair.js') }}"></script>
 
             <!-- Template Html -->
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" type="text/css" href="../css/normalize.css">
-            <link rel="stylesheet" type="text/css" href="../css/algemeen.css">
-            <link rel="stylesheet" type="text/css" href="../css/StyleSheet.css">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/css/normalize.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/css/algemeen.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/css/StyleSheet.css')}}">
+            
+            
             <link rel="icon" href="../images/favicon.ico">
             <!-- Bootstrap -->
             <!-- Latest compiled and minified CSS -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
             
 
@@ -59,11 +64,75 @@
             </script>
 
     <body onload="setInterval('fly()',50)">
-        {% block header %}
-        {% endblock %}
+{% block header %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<div class="container"> 
+  
+  <!-- Navigatie bar-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <img class="logo" alt="Swiftair logo"  src="{{ asset('bundles/scrumswiftair/images/logo.png')}}"  >
+        <div class="slogan">Swiftair...Keep Exploring!</div>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" role="navigation" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span></span>Home</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-search"></span></span>Search Flight</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span></span>Profile</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-plane"></span>About us</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse --> 
+    </div>
+  </nav>
+
+
+
+  
+  <!-- Carousel -->
+  <div id="myCarousel" class="carousel slide" data-interval="5000"> 
+    <!-- Indicators voor carousel(in het midden) -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- images voor carousel-->
+    <div class="carousel-inner">
+      <div class="item active"> <img src="{{ asset('bundles/scrumswiftair/images/Banner/Greece.jpg')}}"/> </div>
+      <div class="item"> <img src="{{ asset('bundles/scrumswiftair/images/Banner/Italy.jpg')}}"/> </div>
+      <div class="item"> <img src="{{ asset('bundles/scrumswiftair/images/Banner/NY.jpg')}}"/> </div>
+    </div>
+    
+    <!-- Controls links en rechts voor carousel--> 
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a> </div>
+
+  
+  
+
+
+{% endblock %}
         {% block body %}
         {% endblock %}
-        {% block footer %}
-        {% endblock %}
+{% block footer %}
+
+ <!-- footer  -->
+  <div class="footer"> &#169; Swiftair 2015 </div>
+
+
+  
+  <!--for carousel --> 
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+</script> 
+{% endblock %}
     </body>
 </html>

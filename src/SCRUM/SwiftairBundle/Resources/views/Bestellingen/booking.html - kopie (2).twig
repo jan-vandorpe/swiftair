@@ -3,26 +3,30 @@
 
 
 {% block body %}
-<div id="boeking">
-    <ul>
-        <li><a href="#step1">Stap 1</a></li>
-        <li><a href="#step2">Stap 2</a></li>
-        <li><a href="#step3">Stap 3</a></li> 
-        <li><a href="#step4">Stap 4</a></li> 
+
+<div role="tabpanel" class= "masthead">
+    <div id="crumbs">
+    <!-- nav tabs --> 
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Search</span></a></li>
+        <li role="presentation"><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Selection</span></a></li>
+        <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Personal information</span></a></li>
+        <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Payment</span></a></li>
+        <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Confirmation </span></a></li>
     </ul>
     
     {{ form_start(form) }}
     
-    <div id="step1">
+    <div role="tabpanel" class="tab-pane" id="step1">
         <h2>Selecteer Vlucht:</h2>
-        
         <div>
             <button type="button" id="toStep2">Verder naar stap 2</button>
         </div>
     </div>
         
-    <div id="step2">
+    <div role="tabpanel" class="tab-pane" id="step2">
         <h2>Klant Gegevens:</h2>
+        <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
             {% for klant in form.klanten %}
                 <div>{{ form_row(klant.naam) }}</div>
                 <div>{{ form_row(klant.voornaam) }}</div>
@@ -38,7 +42,7 @@
         </div>
     </div>
         
-    <div id="step3">
+    <div role="tabpanel" class="tab-pane" id="step3">
         <h2>Passagiers:</h2>
         <button id="klantgegevens">Gebruik klantgegevens</button>
         <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
@@ -60,7 +64,7 @@
         </div>
     </div>
         
-    <div id="step4">
+    <div role="tabpanel" class="tab-pane" id="step4">
         <h2>Bevestiging:</h2>
         <div>
             <button type="button" id="toStep3">Terug naar stap 3</button>
@@ -69,4 +73,6 @@
     </div>
     {{ form_end(form) }}
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 {% endblock %}
