@@ -11,10 +11,9 @@ use SCRUM\SwiftairBundle\Entity\Bestellingen;
 use SCRUM\SwiftairBundle\Form\BestellingenType;
 
 use SCRUM\SwiftairBundle\Entity\Destination;
-use SCRUM\SwiftairBundle\Entity\Booking;
+use SCRUM\SwiftairBundle\Entity\Tickets;
 use SCRUM\SwiftairBundle\Entity\Passagiers;
 use SCRUM\SwiftairBundle\Entity\Klanten;
-use SCRUM\SwiftairBundle\Form\BookingType;
 
 /**
  * Bestellingen controller.
@@ -280,12 +279,26 @@ class BestellingenController extends Controller
             $klant = $booking->getKlanten()[0];
             $em->persist($klant);
             $booking->setKlantid($klant);
+            $em->persist($booking);
+            $bestellingid = $booking->getId();
             
             foreach ($booking->getPassagiers() as $passagier) {
                 $em->persist($passagier);
+                $em->flush();
+                $passagierid = $passagier->getId();
+                $bagage = $passagier->getBagage();
+                $verzekering = $passagier->getVerzekering();
+                
+                $ticket = new Tickets();
+                $ticket->setBestellingid($bestellingid);
+                $ticket->setPassagierid($passagier);
+                $ticket->setVerzekering($bagage);
+                $ticket->setBagage($verzekering);
+                $ticket->setPrijs(100);
+                $ticket->setAnnulatie(false);
+                $em->persist($ticket);
             }
             
-            $em->persist($booking);
             $em->flush();
         }
 

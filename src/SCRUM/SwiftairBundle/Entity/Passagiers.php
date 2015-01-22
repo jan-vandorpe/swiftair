@@ -57,8 +57,8 @@ class Passagiers
      */
     private $geboortedatum;
     
-    private $bagage;
-    private $verzekering;
+    protected $bagage;
+    protected $verzekering;
 
     /**
      * @ORM/OneToMany(targetEntity="Tickets", mappedBy="passagiers")
