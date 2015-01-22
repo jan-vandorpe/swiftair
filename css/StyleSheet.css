@@ -111,7 +111,7 @@ body {
 	font-size: 1em;
 	text-decoration: none;
 	color: #fff;
-	width:19%;
+	
 }
 #crumbs ul li a:after {
 	content: "";
