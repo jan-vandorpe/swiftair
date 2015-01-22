@@ -7,20 +7,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SCRUM\SwiftairBundle\Entity\Landen;
+use SCRUM\SwiftairBundle\Entity\Luchthavens;
 
 /**
- * Landen controller.
+ * Luchthavens controller.
  *
- * @Route("/landen")
+ * @Route("/luchthavens")
  */
-class LandenController extends Controller
+class LuchthavensController extends Controller
 {
 
     /**
-     * Lists all Landen entities.
+     * Lists all Luchthavens entities.
      *
-     * @Route("/", name="landen")
+     * @Route("/", name="luchthavens")
      * @Method("GET")
      * @Template()
      */
@@ -28,7 +28,7 @@ class LandenController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SCRUMSwiftairBundle:Landen')->findAll();
+        $entities = $em->getRepository('SCRUMSwiftairBundle:Luchthavens')->findAll();
 
         return array(
             'entities' => $entities,
@@ -36,9 +36,9 @@ class LandenController extends Controller
     }
 
     /**
-     * Finds and displays a Landen entity.
+     * Finds and displays a Luchthavens entity.
      *
-     * @Route("/{id}", name="landen_show")
+     * @Route("/{id}", name="luchthavens_show")
      * @Method("GET")
      * @Template()
      */
@@ -46,10 +46,10 @@ class LandenController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SCRUMSwiftairBundle:Landen')->find($id);
+        $entity = $em->getRepository('SCRUMSwiftairBundle:Luchthavens')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Landen entity.');
+            throw $this->createNotFoundException('Unable to find Luchthavens entity.');
         }
 
         return array(

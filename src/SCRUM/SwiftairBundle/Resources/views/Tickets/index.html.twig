@@ -7,11 +7,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Bestellingsid</th>
-                <th>Passagierid</th>
-                <th>Vluchtid</th>
-                <th>Klasseid</th>
                 <th>Prijs</th>
+                <th>Bagage</th>
+                <th>Verzekering</th>
                 <th>Annulatie</th>
                 <th>Actions</th>
             </tr>
@@ -20,11 +18,9 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('tickets_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.bestellingsid }}</td>
-                <td>{{ entity.passagierid }}</td>
-                <td>{{ entity.vluchtid }}</td>
-                <td>{{ entity.klasseid }}</td>
                 <td>{{ entity.prijs }}</td>
+                <td>{{ entity.bagage }}</td>
+                <td>{{ entity.verzekering }}</td>
                 <td>{{ entity.annulatie }}</td>
                 <td>
                 <ul>

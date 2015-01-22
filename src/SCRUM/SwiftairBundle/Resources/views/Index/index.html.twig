@@ -1,14 +1,34 @@
 {% extends 'SCRUMSwiftairBundle::base.html.twig' %}
 
-{% block javascripts %}
-    <script src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/external/jquery/jquery.js') }}"></script>
-{% endblock %}
-
-{% block stylesheets %}
-    <link href="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.css') }}" rel="stylesheet" /> 
-{% endblock %}
-
 {% block body %}
-    Hello, welcome to the Index page!
-	{{ parent()}}
+<div id="inhoud">
+    <ul>
+        <li><a href="#welcome">Welkom</a></li>
+        <li><a href="#vlucht">Vlucht Boeken</a></li>
+
+    </ul>
+    
+    <div id="welcome">
+        <h2>Welkom</h2>
+        <p> Op onze website kan u een vlucht boeken naar uw favoriete bestemming.  </p>
+        <p> Wanneer u reeds een vlucht boekte, kan u via de online check-in vanaf drie dagen voor vertrek online inchecken. </p>
+        <br>
+        <p> Wij wensen u alvast een prettige reis </p>
+    </div>
+
+    <div id="vlucht">
+        <h2>Zoek Vluchten:</h2>
+
+        {{ form_start(form) }}
+        <div>
+            {{ form_label(form.vertrek) }}
+            {{ form_widget(form.vertrek) }}
+        </div>
+        <div>
+            {{ form_label(form.bestemming) }}
+            {{ form_widget(form.bestemming) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}

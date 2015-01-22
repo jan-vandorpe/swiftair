@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PrijzenType extends AbstractType
+class BookingType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,12 @@ class PrijzenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('prijs')
-            ->add('klasseid')
-            ->add('vluchtid')
+            ->add('klanten', 'collection', array('type' => new KlantenType()))
+            ->add('passagiers', 'collection', array('type' => new PassagiersType(), 'allow_add' => true))
+            ->add('submit', 'submit', array(
+                'attr' => array('class' => 'submit'),
+                'label' => "Bevestig"
+            ))
         ;
     }
     
@@ -27,7 +30,7 @@ class PrijzenType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SCRUM\SwiftairBundle\Entity\Prijzen'
+            'data_class' => 'SCRUM\SwiftairBundle\Entity\Booking'
         ));
     }
 
@@ -36,6 +39,6 @@ class PrijzenType extends AbstractType
      */
     public function getName()
     {
-        return 'scrum_swiftairbundle_prijzen';
+        return 'scrum_swiftairbundle_booking';
     }
 }

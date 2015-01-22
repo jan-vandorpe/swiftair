@@ -15,12 +15,14 @@ class TicketsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('bestellingsid')
+            ->add('prijs')
+            ->add('bagage')
+            ->add('verzekering')
+            ->add('annulatie')
+            ->add('bestellingid')
             ->add('passagierid')
             ->add('vluchtid')
             ->add('klasseid')
-            ->add('prijs')
-            ->add('annulatie')
         ;
     }
     

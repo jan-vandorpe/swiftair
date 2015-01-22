@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Klanten
@@ -64,6 +65,17 @@ class Klanten
     private $kredietkaart;
 
     /**
+     * @ORM/OneToMany(targetEntity="Bestellingen", mappedBy="klanten")
+     */
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->bestellingen = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -71,144 +83,6 @@ class Klanten
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set klantnaam
-     *
-     * @param string $klantnaam
-     * @return Klanten
-     */
-    public function setKlantnaam($klantnaam)
-    {
-        $this->klantnaam = $klantnaam;
-
-        return $this;
-    }
-
-    /**
-     * Get klantnaam
-     *
-     * @return string 
-     */
-    public function getKlantnaam()
-    {
-        return $this->klantnaam;
-    }
-
-    /**
-     * Set klantvoornaam
-     *
-     * @param string $klantvoornaam
-     * @return Klanten
-     */
-    public function setKlantvoornaam($klantvoornaam)
-    {
-        $this->klantvoornaam = $klantvoornaam;
-
-        return $this;
-    }
-
-    /**
-     * Get klantvoornaam
-     *
-     * @return string 
-     */
-    public function getKlantvoornaam()
-    {
-        return $this->klantvoornaam;
-    }
-
-    /**
-     * Set klantadres
-     *
-     * @param string $klantadres
-     * @return Klanten
-     */
-    public function setKlantadres($klantadres)
-    {
-        $this->klantadres = $klantadres;
-
-        return $this;
-    }
-
-    /**
-     * Get klantadres
-     *
-     * @return string 
-     */
-    public function getKlantadres()
-    {
-        return $this->klantadres;
-    }
-
-    /**
-     * Set klanttelefoon
-     *
-     * @param string $klanttelefoon
-     * @return Klanten
-     */
-    public function setKlanttelefoon($klanttelefoon)
-    {
-        $this->klanttelefoon = $klanttelefoon;
-
-        return $this;
-    }
-
-    /**
-     * Get klanttelefoon
-     *
-     * @return string 
-     */
-    public function getKlanttelefoon()
-    {
-        return $this->klanttelefoon;
-    }
-
-    /**
-     * Set klantemail
-     *
-     * @param string $klantemail
-     * @return Klanten
-     */
-    public function setKlantemail($klantemail)
-    {
-        $this->klantemail = $klantemail;
-
-        return $this;
-    }
-
-    /**
-     * Get klantemail
-     *
-     * @return string 
-     */
-    public function getKlantemail()
-    {
-        return $this->klantemail;
-    }
-
-    /**
-     * Set kredietkaart
-     *
-     * @param string $kredietkaart
-     * @return Klanten
-     */
-    public function setKredietkaart($kredietkaart)
-    {
-        $this->kredietkaart = $kredietkaart;
-
-        return $this;
-    }
-
-    /**
-     * Get kredietkaart
-     *
-     * @return string 
-     */
-    public function getKredietkaart()
-    {
-        return $this->kredietkaart;
     }
 
     /**
@@ -324,5 +198,32 @@ class Klanten
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set kredietkaart
+     *
+     * @param string $kredietkaart
+     * @return Klanten
+     */
+    public function setKredietkaart($kredietkaart)
+    {
+        $this->kredietkaart = $kredietkaart;
+
+        return $this;
+    }
+
+    /**
+     * Get kredietkaart
+     *
+     * @return string 
+     */
+    public function getKredietkaart()
+    {
+        return $this->kredietkaart;
+    }
+    
+    public function __toString() {
+        return $this->naam;
     }
 }

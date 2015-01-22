@@ -15,10 +15,13 @@ class PassagiersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('passagiernaam')
-            ->add('passagiervoornaam')
-            ->add('passagierleeftijd')
-            ->add('passagieradres')
+            ->add('naam')
+            ->add('voornaam')
+            ->add('adres')
+            ->add('rijksregister')
+            ->add('geboortedatum')
+            ->add('bagage', 'checkbox')
+            ->add('verzekering', 'checkbox')
         ;
     }
     

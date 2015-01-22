@@ -10,6 +10,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use SCRUM\SwiftairBundle\Entity\Bestellingen;
 use SCRUM\SwiftairBundle\Form\BestellingenType;
 
+use SCRUM\SwiftairBundle\Entity\Destination;
+use SCRUM\SwiftairBundle\Entity\Booking;
+use SCRUM\SwiftairBundle\Entity\Passagiers;
+use SCRUM\SwiftairBundle\Entity\Klanten;
+use SCRUM\SwiftairBundle\Form\BookingType;
+
 /**
  * Bestellingen controller.
  *
@@ -17,7 +23,6 @@ use SCRUM\SwiftairBundle\Form\BestellingenType;
  */
 class BestellingenController extends Controller
 {
-
     /**
      * Lists all Bestellingen entities.
      *
@@ -35,6 +40,7 @@ class BestellingenController extends Controller
             'entities' => $entities,
         );
     }
+    
     /**
      * Creates a new Bestellingen entity.
      *
@@ -169,6 +175,7 @@ class BestellingenController extends Controller
 
         return $form;
     }
+    
     /**
      * Edits an existing Bestellingen entity.
      *
@@ -202,6 +209,7 @@ class BestellingenController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+    
     /**
      * Deletes a Bestellingen entity.
      *
@@ -243,5 +251,44 @@ class BestellingenController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+    
+    public function bookingAction(Request $request) {
+        $destination = new Destination();
+        $destinationForm = $this->createFormBuilder($destination)
+            ->add('vertrek')
+            ->add('bestemming')
+            ->getForm();
+        
+        $destinationForm->handleRequest($request);
+        $from = $destinationForm['vertrek']->getData();
+        $to = $destinationForm['bestemming']->getData();
+        
+        $booking = new Bestellingen();
+        $klant = new Klanten();
+        $booking->getKlanten()->add($klant);
+        $passagier = new Passagiers();
+        $booking->getPassagiers()->add($passagier);
+        
+        $form = $this->createForm(new BestellingenType(), $booking);
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) {
+//            exit (\Doctrine\Common\Util\Debug::dump($booking));
+            $em = $this->getDoctrine()->getEntityManager();
+            
+            $klant = $booking->getKlanten()[0];
+            $em->persist($klant);
+            $booking->setKlantid($klant);
+            
+            foreach ($booking->getPassagiers() as $passagier) {
+                $em->persist($passagier);
+            }
+            
+            $em->persist($booking);
+            $em->flush();
+        }
+
+        return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to));
     }
 }

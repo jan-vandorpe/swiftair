@@ -32,41 +32,11 @@ class Landen
      * @ORM/OneToMany(targetEntity="Luchthavens", mappedBy="landen")
      */
     
+    /**
+     * Constructor
+     */
     public function __construct() {
         $this->luchthavens = new ArrayCollection();
-    }
-    
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set landnaam
-     *
-     * @param string $landnaam
-     * @return Landen
-     */
-    public function setLandnaam($landnaam)
-    {
-        $this->landnaam = $landnaam;
-
-        return $this;
-    }
-
-    /**
-     * Get landnaam
-     *
-     * @return string 
-     */
-    public function getLandnaam()
-    {
-        return $this->landnaam;
     }
 
     /**
@@ -80,6 +50,16 @@ class Landen
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return string 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

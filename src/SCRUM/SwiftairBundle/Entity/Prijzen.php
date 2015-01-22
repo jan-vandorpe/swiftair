@@ -22,19 +22,23 @@ class Prijzen
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="klasseid", type="integer")
+     * @ORM\ManyToOne(targetEntity="Klasses", inversedBy="prijzen")
+     * @ORM\JoinColumn(name="klasseid", referencedColumnName="id")
      */
-    private $klasseid;
+    protected $klasseid;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Vluchten", inversedBy="prijzen")
+     * @ORM\JoinColumn(name="vluchtid", referencedColumnName="id")
+     */
+    protected $vluchtid;
+    
     /**
      * @var integer
      *
      * @ORM\Column(name="prijs", type="integer")
      */
     private $prijs;
-
 
     /**
      * Get id
@@ -44,29 +48,6 @@ class Prijzen
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set klasseid
-     *
-     * @param integer $klasseid
-     * @return Prijzen
-     */
-    public function setKlasseid($klasseid)
-    {
-        $this->klasseid = $klasseid;
-
-        return $this;
-    }
-
-    /**
-     * Get klasseid
-     *
-     * @return integer 
-     */
-    public function getKlasseid()
-    {
-        return $this->klasseid;
     }
 
     /**
@@ -90,5 +71,51 @@ class Prijzen
     public function getPrijs()
     {
         return $this->prijs;
+    }
+
+    /**
+     * Set klasseid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Klasses $klasseid
+     * @return Prijzen
+     */
+    public function setKlasseid(\SCRUM\SwiftairBundle\Entity\Klasses $klasseid = null)
+    {
+        $this->klasseid = $klasseid;
+
+        return $this;
+    }
+
+    /**
+     * Get klasseid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Klasses 
+     */
+    public function getKlasseid()
+    {
+        return $this->klasseid;
+    }
+
+    /**
+     * Set vluchtid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Vluchten $vluchtid
+     * @return Prijzen
+     */
+    public function setVluchtid(\SCRUM\SwiftairBundle\Entity\Vluchten $vluchtid = null)
+    {
+        $this->vluchtid = $vluchtid;
+
+        return $this;
+    }
+
+    /**
+     * Get vluchtid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Vluchten 
+     */
+    public function getVluchtid()
+    {
+        return $this->vluchtid;
     }
 }

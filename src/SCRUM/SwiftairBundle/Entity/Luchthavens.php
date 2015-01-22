@@ -34,61 +34,17 @@ class Luchthavens
      */
     private $naam;
 
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @ORM/OneToMany(targetEntity="Vluchten", mappedBy="vertrekluchthavens")
+     * @ORM/OneToMany(targetEntity="Vluchten", mappedBy="aankomstluchthavens")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    
     /**
-     * Set landid
-     *
-     * @param integer $landid
-     * @return Luchthavens
+     * Constructor
      */
-    public function setLandid($landid)
-    {
-        $this->landid = $landid;
-
-        return $this;
-    }
-
-    /**
-     * Get landid
-     *
-     * @return integer 
-     */
-    public function getLandid()
-    {
-        return $this->landid;
-    }
-
-    /**
-     * Set luchthavennaam
-     *
-     * @param string $luchthavennaam
-     * @return Luchthavens
-     */
-    public function setLuchthavennaam($luchthavennaam)
-    {
-        $this->luchthavennaam = $luchthavennaam;
-
-        return $this;
-    }
-
-    /**
-     * Get luchthavennaam
-     *
-     * @return string 
-     */
-    public function getLuchthavennaam()
-    {
-        return $this->luchthavennaam;
+    public function __construct() {
+        $this->vertrekluchthavens = new ArrayCollection();
+        $this->aankomstluchthavens = new ArrayCollection();
     }
 
     /**
@@ -102,6 +58,16 @@ class Luchthavens
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return string 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -124,6 +90,33 @@ class Luchthavens
      */
     public function getNaam()
     {
+        return $this->naam;
+    }
+
+    /**
+     * Set landid
+     *
+     * @param \SCRUM\SwiftairBundle\Entity\Landen $landid
+     * @return Luchthavens
+     */
+    public function setLandid(\SCRUM\SwiftairBundle\Entity\Landen $landid = null)
+    {
+        $this->landid = $landid;
+
+        return $this;
+    }
+
+    /**
+     * Get landid
+     *
+     * @return \SCRUM\SwiftairBundle\Entity\Landen 
+     */
+    public function getLandid()
+    {
+        return $this->landid;
+    }
+    
+    public function __toString() {
         return $this->naam;
     }
 }
