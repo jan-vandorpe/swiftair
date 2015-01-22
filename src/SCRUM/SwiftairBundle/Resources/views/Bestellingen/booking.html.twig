@@ -1,0 +1,70 @@
+{% extends 'SCRUMSwiftairBundle::base.html.twig' %}
+
+{% block body %}
+<div id="boeking">
+    <ul>
+        <li><a href="#step1">Stap 1</a></li>
+        <li><a href="#step2">Stap 2</a></li>
+        <li><a href="#step3">Stap 3</a></li> 
+        <li><a href="#step4">Stap 4</a></li> 
+    </ul>
+    
+    {{ form_start(form) }}
+    
+    <div id="step1">
+        <h2>Selecteer Vlucht:</h2>
+        
+        <div>
+            <button type="button" id="toStep2">Verder naar stap 2</button>
+        </div>
+    </div>
+        
+    <div id="step2">
+        <h2>Klant Gegevens:</h2>
+            {% for klant in form.klanten %}
+                <div>{{ form_row(klant.naam) }}</div>
+                <div>{{ form_row(klant.voornaam) }}</div>
+                <div>{{ form_row(klant.adres) }}</div>
+                <div>{{ form_row(klant.telefoon) }}</div>
+                <div>{{ form_row(klant.email) }}</div>
+                <div>{{ form_row(klant.kredietkaart) }}</div>
+            {% endfor %} 
+        </ul>
+        <div>
+            <button type="button" id="toStep1">Terug naar stap 1</button>
+            <button type="button" id="toStep3">Verder naar stap 3</button>
+        </div>
+    </div>
+        
+    <div id="step3">
+        <h2>Passagiers:</h2>
+        <button id="klantgegevens">Gebruik klantgegevens</button>
+        <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
+            {% for passagier in form.passagiers %}
+                <li>
+                    <div>{{ form_row(passagier.naam) }}</div>
+                    <div>{{ form_row(passagier.voornaam) }}</div>
+                    <div>{{ form_row(passagier.adres) }}</div>
+                    <div>{{ form_row(passagier.rijksregister) }}</div>
+                    <div>{{ form_row(passagier.bagage) }}</div>
+                    <div>{{ form_row(passagier.verzekering) }}</div>
+                    <div>{{ form_row(passagier.geboortedatum) }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div>
+            <button type="button" id="toStep2">Terug naar stap 2</button>
+            <button type="button" id="toStep4">Verder naar stap 4</button>
+        </div>
+    </div>
+        
+    <div id="step4">
+        <h2>Bevestiging:</h2>
+        <div>
+            <button type="button" id="toStep3">Terug naar stap 3</button>
+            {{ form_row(form.submit) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

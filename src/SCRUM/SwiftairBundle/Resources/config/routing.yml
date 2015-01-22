@@ -5,3 +5,11 @@ scrum_swiftair_homepage:
 scrum_swiftair_index:
     path: /
     defaults: { _controller: SCRUMSwiftairBundle:Index:index }
+
+scrum_swiftair_booking:
+    path: /booking
+    defaults: { _controller: SCRUMSwiftairBundle:Bestellingen:booking }
+
+scrum_swiftair_CRUD:
+    resource: "@SCRUMSwiftairBundle/Controller/"
+    type: annotation
