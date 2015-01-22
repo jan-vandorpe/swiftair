@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
         
-        <title>{% block title %}Swiftair{% endblock %}</title>
+        <title>{% block title %}Swiftair... Keep Exploring!{% endblock %}</title>
         
         {% block stylesheets %}
             <link rel='stylesheet' type='text/css' href={{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-ui.min.css') }} />
@@ -16,11 +16,61 @@
             <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/jquery.validate.min.js') }}"> </script>
             <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/additional-methods.min.js')}}"></script>
             <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/swiftair.js') }}"></script>
+
+            <!-- Template Html -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+            <link rel="stylesheet" type="text/css" href="../css/algemeen.css">
+            <link rel="stylesheet" type="text/css" href="../css/StyleSheet.css">
+            <link rel="icon" href="../images/favicon.ico">
+            <!-- Bootstrap -->
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+            
+
         {% endblock %}
         
+
     </head>
-    <body>
+<!-- Javascript code voor vliegtuig -->
+            <script language="JavaScript">
+
+            function fly() {
+             if(document.getElementById) {
+              var planeStyle = document.getElementById("plane").style
+              window.defaultStatus = "("+planeStyle.left+","+planeStyle.top+")"
+              if(parseInt(planeStyle.top) < 10) {
+               planeStyle.left = 0
+               planeStyle.top = 55
+              }else{
+               planeStyle.left = parseInt(planeStyle.left) + 14
+               planeStyle.top = 55
+               }
+             }else if(document.all) {
+              var planeStyle=window.document.all.plane.style
+              window.defaultStatus = "("+planeStyle.posLeft+","+planeStyle.posTop+")"
+              if(planeStyle.posTop < 10) {
+               planeStyle.posLeft = 0
+               planeStyle.posTop = 55
+              }else{
+               planeStyle.posLeft += 8
+               planeStyle.posTop -= 5
+              }
+             }
+            }
+            window.setTimeout("closeHelpDiv();", 5000);
+            function closeHelpDiv(){
+            document.getElementById("plane").style.display=" none";
+            }
+            </script>
+
+    <body onload="setInterval('fly()',50)">
+        {% block header %}
+        {% endblock %}
         {% block body %}
+        {% endblock %}
+        {% block footer %}
         {% endblock %}
     </body>
 </html>
