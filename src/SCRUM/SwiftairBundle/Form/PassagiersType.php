@@ -20,8 +20,8 @@ class PassagiersType extends AbstractType
             ->add('adres')
             ->add('rijksregister')
             ->add('geboortedatum')
-            ->add('bagage', 'checkbox')
-            ->add('verzekering', 'checkbox')
+            ->add('bagage', 'checkbox', array('required' => false))
+            ->add('verzekering', 'checkbox', array('required' => false))
         ;
     }
     

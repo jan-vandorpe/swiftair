@@ -1,1 +1,14 @@
-{ parameters: { database_driver: pdo_mysql, database_host: 192.168.0.31, database_port: null, database_name: swiftair, database_user: scrum, database_password: '123456', mailer_transport: smtp, mailer_host: 127.0.0.1, mailer_user: null, mailer_password: null, locale: en, secret: c89b92acb8c6d995f5eff789ca7a0e9ae92a44bd, database_path: null } }
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: swiftair
+    database_user: swiftair
+    database_password: swiftpass
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
