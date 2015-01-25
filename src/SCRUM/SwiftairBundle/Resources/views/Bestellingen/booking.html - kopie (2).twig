@@ -1,77 +1,75 @@
 {% extends 'SCRUMSwiftairBundle::base.html.twig' %}
 
-
-
 {% block body %}
-
 <div role="tabpanel" class= "masthead">
     <div id="crumbs">
     <!-- nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Search</span></a></li>
-        <li role="presentation"><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Selection</span></a></li>
-        <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Personal information</span></a></li>
-        <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Payment</span></a></li>
-        <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Confirmation </span></a></li>
-    </ul>
-    
-    {{ form_start(form) }}
-    
-    <div role="tabpanel" class="tab-pane" id="step1">
-        <h2>Selecteer Vlucht:</h2>
-        <div>
-            <button type="button" id="toStep2">Verder naar stap 2</button>
-        </div>
-    </div>
-        
-    <div role="tabpanel" class="tab-pane" id="step2">
-        <h2>Klant Gegevens:</h2>
-        <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
-            {% for klant in form.klanten %}
-                <div>{{ form_row(klant.naam) }}</div>
-                <div>{{ form_row(klant.voornaam) }}</div>
-                <div>{{ form_row(klant.adres) }}</div>
-                <div>{{ form_row(klant.telefoon) }}</div>
-                <div>{{ form_row(klant.email) }}</div>
-                <div>{{ form_row(klant.kredietkaart) }}</div>
-            {% endfor %} 
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Search</span></a></li>
+            <li role="presentation"><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Selection</span></a></li>
+            <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Personal information</span></a></li>
+            <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Payment</span></a></li>
+            <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Confirmation </span></a></li>
         </ul>
-        <div>
-            <button type="button" id="toStep1">Terug naar stap 1</button>
-            <button type="button" id="toStep3">Verder naar stap 3</button>
+
+        {{ form_start(form) }}
+
+        <div role="tabpanel" class="tab-pane" id="step1">
+            <h2>Selecteer Vlucht:</h2>
+            <div>
+                <button type="button" id="toStep2">Verder naar stap 2</button>
+            </div>
         </div>
-    </div>
-        
-    <div role="tabpanel" class="tab-pane" id="step3">
-        <h2>Passagiers:</h2>
-        <button id="klantgegevens">Gebruik klantgegevens</button>
-        <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
-            {% for passagier in form.passagiers %}
-                <li>
-                    <div>{{ form_row(passagier.naam) }}</div>
-                    <div>{{ form_row(passagier.voornaam) }}</div>
-                    <div>{{ form_row(passagier.adres) }}</div>
-                    <div>{{ form_row(passagier.rijksregister) }}</div>
-                    <div>{{ form_row(passagier.bagage) }}</div>
-                    <div>{{ form_row(passagier.verzekering) }}</div>
-                    <div>{{ form_row(passagier.geboortedatum) }}</div>
-                </li>
-            {% endfor %}
-        </ul>
-        <div>
-            <button type="button" id="toStep2">Terug naar stap 2</button>
-            <button type="button" id="toStep4">Verder naar stap 4</button>
+
+        <div role="tabpanel" class="tab-pane" id="step2">
+            <h2>Klant Gegevens:</h2>
+            <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
+                {% for klant in form.klanten %}
+                    <div>{{ form_row(klant.naam) }}</div>
+                    <div>{{ form_row(klant.voornaam) }}</div>
+                    <div>{{ form_row(klant.adres) }}</div>
+                    <div>{{ form_row(klant.telefoon) }}</div>
+                    <div>{{ form_row(klant.email) }}</div>
+                    <div>{{ form_row(klant.kredietkaart) }}</div>
+                {% endfor %} 
+            </ul>
+            <div>
+                <button type="button" id="toStep1">Terug naar stap 1</button>
+                <button type="button" id="toStep3">Verder naar stap 3</button>
+            </div>
         </div>
-    </div>
-        
-    <div role="tabpanel" class="tab-pane" id="step4">
-        <h2>Bevestiging:</h2>
-        <div>
-            <button type="button" id="toStep3">Terug naar stap 3</button>
-            {{ form_row(form.submit) }}
+
+        <div role="tabpanel" class="tab-pane" id="step3">
+            <h2>Passagiers:</h2>
+            <button id="klantgegevens">Gebruik klantgegevens</button>
+            <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
+                {% for passagier in form.passagiers %}
+                    <li>
+                        <div>{{ form_row(passagier.naam) }}</div>
+                        <div>{{ form_row(passagier.voornaam) }}</div>
+                        <div>{{ form_row(passagier.adres) }}</div>
+                        <div>{{ form_row(passagier.rijksregister) }}</div>
+                        <div>{{ form_row(passagier.bagage) }}</div>
+                        <div>{{ form_row(passagier.verzekering) }}</div>
+                        <div>{{ form_row(passagier.geboortedatum) }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div>
+                <button type="button" id="toStep2">Terug naar stap 2</button>
+                <button type="button" id="toStep4">Verder naar stap 4</button>
+            </div>
         </div>
+
+        <div role="tabpanel" class="tab-pane" id="step4">
+            <h2>Bevestiging:</h2>
+            <div>
+                <button type="button" id="toStep3">Terug naar stap 3</button>
+                {{ form_row(form.submit) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
     </div>
-    {{ form_end(form) }}
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

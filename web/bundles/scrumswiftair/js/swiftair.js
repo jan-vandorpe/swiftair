@@ -1,4 +1,6 @@
 $(function ($) {
+    setInterval('fly()',50);
+    $('.carousel').carousel();
     $('#inhoud').tabs();
     $('#boeking').tabs();
     
@@ -43,4 +45,35 @@ function addPassagierForm($collectionHolder, $newLinkLi) {
         $(this).parent().remove();
         return false;
     });
+}
+
+function fly() {
+    if(document.getElementById) {
+        var planeStyle = document.getElementById("plane").style
+        window.defaultStatus = "("+planeStyle.left+","+planeStyle.top+")"
+        if(parseInt(planeStyle.top) < 10) {
+            planeStyle.left = 0
+            planeStyle.top = 55
+        }
+        else{
+            planeStyle.left = parseInt(planeStyle.left) + 14
+            planeStyle.top = 55
+        }
+    }
+    else if(document.all) {
+        var planeStyle=window.document.all.plane.style
+        window.defaultStatus = "("+planeStyle.posLeft+","+planeStyle.posTop+")"
+        if(planeStyle.posTop < 10) {
+            planeStyle.posLeft = 0
+            planeStyle.posTop = 55
+        }
+        else{
+            planeStyle.posLeft += 8
+            planeStyle.posTop -= 5
+        }
+    }
+}
+window.setTimeout("closeHelpDiv();", 5000);
+function closeHelpDiv(){
+    document.getElementById("plane").style.display = "none";
 }
