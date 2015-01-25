@@ -1,7 +1,3 @@
-scrum_swiftair_homepage:
-    path:     /admin/hello/{name}
-    defaults: { _controller: SCRUMSwiftairBundle:Default:index }
-    
 scrum_swiftair_index:
     path: /
     defaults: { _controller: SCRUMSwiftairBundle:Index:index }
@@ -9,6 +5,22 @@ scrum_swiftair_index:
 scrum_swiftair_booking:
     path: /booking
     defaults: { _controller: SCRUMSwiftairBundle:Bestellingen:booking }
+
+scrum_swiftair_destination:
+    path: /destination
+    defaults: { _controller: SCRUMSwiftairBundle:Destination:index }
+
+scrum_swiftair_about:
+    path: /about
+    defaults: { _controller: SCRUMSwiftairBundle:About:index }
+
+scrum_swiftair_profile:
+    path: /profile
+    defaults: { _controller: SCRUMSwiftairBundle:Profile:index }
+
+scrum_swiftair_contact:
+    path: /contact
+    defaults: { _controller: SCRUMSwiftairBundle:Contact:index }
 
 scrum_swiftair_CRUD:
     resource: "@SCRUMSwiftairBundle/Controller/"
