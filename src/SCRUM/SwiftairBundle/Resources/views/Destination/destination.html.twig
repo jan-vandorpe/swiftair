@@ -4,5 +4,22 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">Destination</div>
+    <div class="container">
+        {{ form_start(form) }}
+        <div>
+            <div>{{ form_label(form.vertrek) }}</div>
+            <div>{{ form_widget(form.vertrek) }}</div>
+        </div>
+        
+        <div>
+            <div>{{ form_label(form.bestemming) }}</div>
+            <div>{{ form_widget(form.bestemming) }}</div>
+        </div>
+        
+        <div>
+            {{ form_widget(form.save) }}
+        </div>
+        
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
