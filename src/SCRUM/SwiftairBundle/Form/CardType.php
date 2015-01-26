@@ -12,12 +12,11 @@ class CardType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('nummer')
             ->add('expiration')
-            ->add('type')
+            ->add('typeid', array('empty_value' => 'Please choose a person'))
             ->add('naam')
         ;
     }

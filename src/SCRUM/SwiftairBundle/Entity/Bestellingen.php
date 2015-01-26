@@ -117,4 +117,8 @@ class Bestellingen
     public function getPassagiers() {
         return $this->passagiers;
     }
+    
+    public function getKrediet() {
+        return $this->krediet;
+    }
 }

@@ -14,6 +14,7 @@ use SCRUM\SwiftairBundle\Entity\Destination;
 use SCRUM\SwiftairBundle\Entity\Tickets;
 use SCRUM\SwiftairBundle\Entity\Passagiers;
 use SCRUM\SwiftairBundle\Entity\Klanten;
+use SCRUM\SwiftairBundle\Entity\Card;
 
 /**
  * Bestellingen controller.
@@ -266,6 +267,8 @@ class BestellingenController extends Controller
         $booking = new Bestellingen();
         $klant = new Klanten();
         $booking->getKlanten()->add($klant);
+        $krediet = new Card();
+        $booking->getKrediet()->add($krediet);        
         $passagier = new Passagiers();
         $booking->getPassagiers()->add($passagier);
         
@@ -285,7 +288,6 @@ class BestellingenController extends Controller
             foreach ($booking->getPassagiers() as $passagier) {
                 $em->persist($passagier);
                 $em->flush();
-                $passagierid = $passagier->getId();
                 $bagage = $passagier->getBagage();
                 $verzekering = $passagier->getVerzekering();
                 

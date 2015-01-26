@@ -20,7 +20,7 @@ class KlantenType extends AbstractType
             ->add('adres')
             ->add('telefoon')
             ->add('email')
-            ->add('kredietkaart')
+            ->add('kredietkaart', 'checkbox', array('required' => false))
         ;
     }
     

@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SCRUM\SwiftairBundle\Entity\Credit;
 
 /**
  * Card
@@ -112,26 +113,26 @@ class Card
     }
 
     /**
-     * Set type
+     * Set typeid
      *
-     * @param string $type
+     * @param string $typeid
      * @return Card
      */
-    public function setType($type)
+    public function setTypeid($typeid)
     {
-        $this->type = $type;
+        $this->typeid = $typeid;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get typeid
      *
      * @return string 
      */
-    public function getType()
+    public function getTypeid()
     {
-        return $this->type;
+        return $this->typeid;
     }
 
     /**
