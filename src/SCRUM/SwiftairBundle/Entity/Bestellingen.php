@@ -37,6 +37,7 @@ class Bestellingen
 
     protected $klanten;
     protected $passagiers;
+    protected $krediet;
     
     /**
      * @ORM/OneToMany(targetEntity="Tickets", mappedBy="bestellingen")
@@ -50,6 +51,7 @@ class Bestellingen
         $this->tickets = new ArrayCollection();
         $this->passagiers = new ArrayCollection();
         $this->klanten = new ArrayCollection();
+        $this->krediet = new ArrayCollection();
     }
 
     /**

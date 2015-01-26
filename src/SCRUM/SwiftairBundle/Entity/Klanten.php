@@ -66,6 +66,7 @@ class Klanten
 
     /**
      * @ORM/OneToMany(targetEntity="Bestellingen", mappedBy="klanten")
+     * @ORM/OneToMany(targetEntity="Card", mappedBy="klanten")
      */
     
     /**
