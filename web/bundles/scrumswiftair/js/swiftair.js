@@ -2,12 +2,15 @@ $(function ($) {
     setInterval('fly()',50);
     $('.carousel').carousel();
     $('#inhoud').tabs();
-    $('#boeking').tabs();
     
-    $("button[id^='toStep']").click(function() {
-        var nStep = parseInt(this.id.match(/\d+/)[0]) - 1;
-        $('#boeking').tabs({active:nStep});
-    });
+  
+  var $tabs = $('.tabbable li');
+	$("button[id^='prevtab']").click(function() {
+		$tabs.filter('.active').prev('li').find('a[data-toggle="tab"]').tab('show');
+	}); 
+ 	$("button[id^='nexttab']").click(function() {
+		$tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
+	}); 
     
     var $addPassagierLink = $('<a href="" class="add_passagier">Voeg passagier toe</a>');
     var $newLinkLi = $('<li></li>').append($addPassagierLink);
