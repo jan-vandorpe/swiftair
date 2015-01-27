@@ -9,6 +9,10 @@ body {
 	padding-right: 0.5em;
 	color:#FFFFFF
 }
+
+.contact .glyphicon {
+	color:#000000;
+}
 .slogan {
 	color: #0277bd;
 	padding-left: 1em;
@@ -28,7 +32,10 @@ body {
 	display : none;
 	}
 
-
+.contact ul li {
+	list-style-type:none;
+	font-weight:bold;
+}
 
 
 

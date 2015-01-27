@@ -4,5 +4,88 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">COntact</div>
+    <div class="container contact">
+    <h1> Contact </h1>
+    
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> Veelgestelde vragen </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <ul class="faq">
+        	<li> Wat als ik met meer dan 10 personen wil vliegen? </li>
+            <p> Gelieve dan even contact op te nemen met ons contactcenter, zij helpen u met plezier verder met uw boeking. </p>
+            <li> Hoe kom ik aan mijn boardingpas?</li>
+            <p> Drie dagen voor uw vertrek zal er een mail naar u worden gestuurd met daarin alle nodige stappen om uw in te checken. </p>
+            <li> Hoe weet ik zeker of mijn boeking bevestigd is? </li>
+            <p> Nadat u uw boeking bevestigd heeft, krijgt u een bevestigingsmail toegestuurd. </p>
+         </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Contactgegevens Contactcenter
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+       
+       <p><span class="glyphicon glyphicon-home"> </span> Swiftair Contactcenter <br>
+       HiermoetuzijnStraat 123<br>
+       4597 Stadje </p>
+       
+       <p> <span class="glyphicon glyphicon-phone-alt"> </span> 0800 44 55 33 </p>
+       <p> <span class="glyphicon glyphicon-envelope"> </span> <a HREF="mailto:mailonshier@swiftair.com">mailonshier@swiftair.com</a></p>
+         
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Volg Ons
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <p> <div class="fb-follow" data-href="https://www.facebook.com/pages/Swiftair/208193255865441?fref=ts" data-colorscheme="light" data-layout="standard" data-show-faces="true"></div> </p>
+        <p> <a href="https://twitter.com/swiftair" class="twitter-follow-button" data-show-count="false" data-lang="nl">@swiftair volgen</a> </p>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+    
+    
+    
+    </div>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    
 {% endblock %}

@@ -6,11 +6,11 @@
         <div class="tabbable" id="crumbs">
         <!-- nav tabs --> 
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" ><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Select your Flight</span></a></li>
-                <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Personal information </span></a></li>
-                <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Passenger Specifics</span></a></li>
-                <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Payment</span></a></li>
-                <li role="presentation"><a href="#step5" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Confirmation </span></a></li>
+                <li role="presentation" ><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Kies uw vlucht</span></a></li>
+                <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Klantgegevens </span></a></li>
+                <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Passagiersgegevens</span></a></li>
+                <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Betaling </span></a></li>
+                <li role="presentation"><a href="#step5" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging</span></a></li>
             </ul>
 
             {{ form_start(form) }}
@@ -19,7 +19,7 @@
 			<div role="tabpanel" class="tab-pane active" id="step1">
             	<h2>Selecteer Vlucht:</h2>
                 <div>
-                    <button type="button" id="nexttab">Book your flight</button>
+                    <button type="button" id="nexttab"> Boek uw vlucht </button>
                 </div>
             </div>
 
@@ -36,8 +36,8 @@
                     {% endfor %} 
                 </ul>
                 <div>
-                    <button type="button" id="prevtab">Back to 'Choose your flight'</button>
-                    <button type="button" id="nexttab">Next to 'Passenger information'</button>
+                    <button type="button" id="prevtab">Terug naar 'Kies uw vlucht' </button>
+                    <button type="button" id="nexttab">Ga door naar 'Passagiersgegevens' </button>
                 </div>
             </div>
 
@@ -58,15 +58,16 @@
                     {% endfor %}
                 </ul>
                 <div>
-                    <button type="button" id="prevtab">Back to 'Personal information'</button>
-                    <button type="button" id="nexttab">Next to 'Book your flight'</button>
+                    <button type="button" id="prevtab">Terug naar 'Klantgegevens'</button>
+                    <button type="button" id="nexttab">Ga verder naar 'Betaling' </button>
                 </div>
             </div>
             
             <div role="tabpanel" class="tab-pane" id="step4">
                 <h2>Payment</h2>
                 <div>
-                    <button type="button" id="prevtab">Back to 'Passenger specifics'</button>
+                    <button type="button" id="prevtab">Ga terug naar 'Passagiersgegevens' </button>
+                    <button type="button" id="nexttab">Ga verder naar 'Betaling' </button>
                     {{ form_row(form.submit) }}
                 </div>
             </div>
@@ -74,7 +75,7 @@
             <div role="tabpanel" class="tab-pane" id="step5">
                 <h2>Confirmation:</h2>
                 <div>
-                    <button type="button" id="prevtab">BOOK your flight</button>
+                    <button type="button" id="prevtab">Boek uw vlucht</button>
                     {{ form_row(form.submit) }}
                 </div>
             </div>
