@@ -20,10 +20,10 @@ function fly() {
   window.defaultStatus = "("+planeStyle.left+","+planeStyle.top+")"
   if(parseInt(planeStyle.top) < 10) {
    planeStyle.left = 0
-   planeStyle.top = 55
+   planeStyle.top = 80
   }else{
    planeStyle.left = parseInt(planeStyle.left) + 14
-   planeStyle.top = 55
+   planeStyle.top = 80
   }
  }else if(document.all) {
   var planeStyle=window.document.all.plane.style
@@ -61,6 +61,8 @@ document.getElementById("plane").style.display=" none";
       </div>
       <div id="navbar" class="navbar-collapse collapse" role="navigation" aria-expanded="false" style="height: 1px;">
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-home"></span></span>Home</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-search"></span></span>Search Flight</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-user"></span></span>Profile</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-plane"></span>About us</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>

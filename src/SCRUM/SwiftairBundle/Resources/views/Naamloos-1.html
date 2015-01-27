@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../css/normalize.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/algemeen.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/StyleSheet.css">
+<link rel="icon" href="../images/favicon.ico">
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<title>Swiftair...Keep Exploring!</title>
+</head>
+
+</head>
+
+<body>
+
+
+
+
+<!-- Stappen menu-->
+  <div role="tabpanel" class= "masthead">
+  <div id="crumbs">
+    <!-- nav tabs --> 
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Search</span></a></li>
+        <li role="presentation"><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Selection</span></a></li>
+        <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Personal information</span></a>
+        </li>
+        <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Payment</span></a></li>
+        <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Confirmation </span></a></li>
+      </ul>
+      
+    <!-- Tab panes --> 
+   	<div class="tab-content">
+    	<div role="tabpanel" class="tab-pane active" id="home">
+            Zoek hier
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="step1">
+        	<h2>Selecteer Vlucht:</h2>
+            <div>
+                <button type="button" id="toStep2">Verder naar stap 2</button>
+            </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="step2">
+        	<h2>Klant Gegevens:</h2>
+            {% for klant in form.klanten %}
+                <div>{{ form_row(klant.naam) }}</div>
+                <div>{{ form_row(klant.voornaam) }}</div>
+                <div>{{ form_row(klant.adres) }}</div>
+                <div>{{ form_row(klant.telefoon) }}</div>
+                <div>{{ form_row(klant.email) }}</div>
+                <div>{{ form_row(klant.kredietkaart) }}</div>
+            {% endfor %} 
+        </ul>
+        <div>
+                     
+            <button type="button" id="toStep1">Terug naar stap 1</button>
+            <button type="button" id="toStep3">Verder naar stap 3</button>
+        </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="step3">
+        	<h2>Passagiers:</h2>
+        <button id="klantgegevens">Gebruik klantgegevens</button>
+        <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
+            {% for passagier in form.passagiers %}
+                <li>
+                    <div>{{ form_row(passagier.naam) }}</div>
+                    <div>{{ form_row(passagier.voornaam) }}</div>
+                    <div>{{ form_row(passagier.adres) }}</div>
+                    <div>{{ form_row(passagier.rijksregister) }}</div>
+                    <div>{{ form_row(passagier.bagage) }}</div>
+                    <div>{{ form_row(passagier.verzekering) }}</div>
+                    <div>{{ form_row(passagier.geboortedatum) }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div>
+            <button type="button" id="toStep2">Terug naar stap 2</button>
+            <button type="button" id="toStep4">Verder naar stap 4</button>
+        </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="step4">
+        	<h2>Bevestiging:</h2>
+        	<div>
+            <button type="button" id="toStep3">Terug naar stap 3</button>
+            {{ form_row(form.submit) }}
+        	</div>
+        </div>
+        
+    </div>
+    </div>
+    
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

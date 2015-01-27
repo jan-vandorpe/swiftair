@@ -60,11 +60,11 @@ function fly() {
         window.defaultStatus = "("+planeStyle.left+","+planeStyle.top+")"
         if(parseInt(planeStyle.top) < 10) {
             planeStyle.left = 0
-            planeStyle.top = 55
+            planeStyle.top = 50
         }
         else{
             planeStyle.left = parseInt(planeStyle.left) + 14
-            planeStyle.top = 55
+            planeStyle.top = 50
         }
     }
     else if(document.all) {
@@ -72,7 +72,7 @@ function fly() {
         window.defaultStatus = "("+planeStyle.posLeft+","+planeStyle.posTop+")"
         if(planeStyle.posTop < 10) {
             planeStyle.posLeft = 0
-            planeStyle.posTop = 55
+            planeStyle.posTop = 50
         }
         else{
             planeStyle.posLeft += 8
