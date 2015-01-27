@@ -34,7 +34,7 @@ body {
 
 .contact ul li {
 	list-style-type:none;
-	font-weight:bold;
+	font-weight:bold
 }
 
 
@@ -45,8 +45,15 @@ body {
 #myCarousel {
 	margin-top: 6em;
 }
+
 .footer {
 	border-top: 1px solid #eee;
+	position:fixed;
+	bottom:0;
+}
+.footer>p{
+	text-align:center;
+	margin-right:3%;
 }
 
 @media (min-width: 362px) {

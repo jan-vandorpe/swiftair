@@ -31,6 +31,10 @@ $(function ($) {
     });
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
 function addPassagierForm($collectionHolder, $newLinkLi) {
     var prototype = $collectionHolder.data('prototype');
 
