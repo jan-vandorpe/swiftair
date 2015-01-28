@@ -259,22 +259,22 @@ class BestellingenController extends Controller
             ->add('vertrek')
             ->add('bestemming')
             ->add('aantal')
+            ->add('klasse')
             ->getForm();
         
         $destinationForm->handleRequest($request);
         $from = $destinationForm['vertrek']->getData();
         $to = $destinationForm['bestemming']->getData();
-        $number = $destinationForm['aantal']->getData();
+        $number = $destinationForm['bestemming']->getData();
+        $klasse = $destinationForm['klasse']->getData();
         
         $booking = new Bestellingen();
         $klant = new Klanten();
         $booking->getKlanten()->add($klant);
         $krediet = new Card();
-        $booking->getKrediet()->add($krediet);   
-        for ($i = 0; $i < $number; $i++) {
-            $passagiers[$i] = new Passagiers();
-            $booking->getPassagiers()->add($passagiers[$i]);
-        }
+        $booking->getKrediet()->add($krediet);
+        $passagier = new Passagiers();
+        $booking->getPassagiers()->add($passagier);
         
         $form = $this->createForm(new BestellingenType(), $booking);
         $form->handleRequest($request);
@@ -285,24 +285,26 @@ class BestellingenController extends Controller
             
             $klant = $booking->getKlanten()[0];
             $em->persist($klant);
+            $em->flush();
             $booking->setKlantid($klant);
             $em->persist($booking);
-            $bestellingid = $booking->getId();
+            $em->flush();
             
             foreach ($booking->getPassagiers() as $passagier) {
                 $em->persist($passagier);
                 $em->flush();
-//                $bagage = $passagier->getBagage();
-//                $verzekering = $passagier->getVerzekering();
-//                
-//                $ticket = new Tickets();
-//                $ticket->setBestellingid($bestellingid);
-//                $ticket->setPassagierid($passagier);
-//                $ticket->setVerzekering($bagage);
-//                $ticket->setBagage($verzekering);
-//                $ticket->setPrijs(100);
-//                $ticket->setAnnulatie(false);
-//                $em->persist($ticket);
+                $bagage = $passagier->getBagage();
+                $verzekering = $passagier->getVerzekering();
+                
+                $ticket = new Tickets();
+                $ticket->setBestellingid($booking);
+                $ticket->setPassagierid($passagier);
+                $ticket->setKlasseid($klasse);
+                $ticket->setVerzekering($bagage);
+                $ticket->setBagage($verzekering);
+                $ticket->setPrijs(100);
+                $ticket->setAnnulatie(false);
+                $em->persist($ticket);
             }
             
             $em->flush();
