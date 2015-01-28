@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use SCRUM\SwiftairBundle\Entity\Destination;
 
 class IndexController extends Controller {
     public function indexAction() {
