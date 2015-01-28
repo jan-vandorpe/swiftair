@@ -25,25 +25,23 @@
 
             <div role="tabpanel" class="tab-pane" id="step2">
                 <h2>Klant Gegevens:</h2>
-                <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
-                    {% for klant in form.klanten %}
-                        <div>{{ form_row(klant.naam) }}</div>
-                        <div>{{ form_row(klant.voornaam) }}</div>
-                        <div>{{ form_row(klant.adres) }}</div>
-                        <div>{{ form_row(klant.telefoon) }}</div>
-                        <div>{{ form_row(klant.email) }}</div>
-                        <div>{{ form_row(klant.kredietkaart) }}</div>
-                    {% endfor %} 
-                </ul>
-                
-                    {% for kaart in form.krediet %}
-                        <div>
-                            <div>{{ form_row(kaart.nummer) }}</div>
-                            <div>{{ form_row(kaart.expiration) }}</div>
-                            <div>{{ form_row(kaart.typeid) }}</div>
-                            <div>{{ form_row(kaart.naam) }}</div>
-                        </div>
-                     {% endfor %}    
+                {% for klant in form.klanten %}
+                    <div>{{ form_row(klant.naam) }}</div>
+                    <div>{{ form_row(klant.voornaam) }}</div>
+                    <div>{{ form_row(klant.adres) }}</div>
+                    <div>{{ form_row(klant.telefoon) }}</div>
+                    <div>{{ form_row(klant.email) }}</div>
+                    <div>{{ form_row(klant.kredietkaart) }}</div>
+                {% endfor %} 
+
+                {% for kaart in form.krediet %}
+                    <div>
+                        <div>{{ form_row(kaart.nummer) }}</div>
+                        <div>{{ form_row(kaart.expiration) }}</div>
+                        <div>{{ form_row(kaart.typeid) }}</div>
+                        <div>{{ form_row(kaart.naam) }}</div>
+                    </div>
+                 {% endfor %}    
                         
 
                 <div>
@@ -55,19 +53,15 @@
             <div role="tabpanel" class="tab-pane" id="step3">
                 <h2>Passagiers:</h2>
                 <button id="klantgegevens">Gebruik klantgegevens</button>
-                <ul class="passagiers" data-prototype="{{ form_widget(form.passagiers.vars.prototype)|e }}">
-                    {% for passagier in form.passagiers %}
-                        <li>
-                            <div>{{ form_row(passagier.naam) }}</div>
-                            <div>{{ form_row(passagier.voornaam) }}</div>
-                            <div>{{ form_row(passagier.adres) }}</div>
-                            <div>{{ form_row(passagier.rijksregister) }}</div>
-                            <div>{{ form_row(passagier.bagage) }}</div>
-                            <div>{{ form_row(passagier.verzekering) }}</div>
-                            <div>{{ form_row(passagier.geboortedatum) }}</div>
-                        </li>
-                    {% endfor %}
-                </ul>
+                {% for passagier in form.passagiers %}
+                    <div>{{ form_row(passagier.naam) }}</div>
+                    <div>{{ form_row(passagier.voornaam) }}</div>
+                    <div>{{ form_row(passagier.adres) }}</div>
+                    <div>{{ form_row(passagier.rijksregister) }}</div>
+                    <div>{{ form_row(passagier.bagage) }}</div>
+                    <div>{{ form_row(passagier.verzekering) }}</div>
+                    <div>{{ form_row(passagier.geboortedatum) }}</div>
+                {% endfor %}
                 <div>
                     <button type="button" id="prevtab">Terug naar 'Klantgegevens'</button>
                     <button type="button" id="nexttab">Ga verder naar 'Betaling' </button>
@@ -79,14 +73,12 @@
                 <div>
                     <button type="button" id="prevtab">Ga terug naar 'Passagiersgegevens' </button>
                     <button type="button" id="nexttab">Ga verder naar 'Betaling' </button>
-                    {{ form_row(form.submit) }}
                 </div>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="step5">
                 <h2>Confirmation:</h2>
                 <div>
-                    <button type="button" id="prevtab">Boek uw vlucht</button>
                     {{ form_row(form.submit) }}
                 </div>
             </div>

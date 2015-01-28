@@ -17,10 +17,10 @@ class BestellingenType extends AbstractType
         $builder
             ->add('klanten', 'collection', array('type' => new KlantenType()))
             ->add('krediet', 'collection', array('type' => new CardType()))
-            ->add('passagiers', 'collection', array('type' => new PassagiersType(), 'allow_add' => true))
+            ->add('passagiers', 'collection', array('type' => new PassagiersType()))
             ->add('submit', 'submit', array(
                 'attr' => array('class' => 'submit'),
-                'label' => "Bevestig"
+                'label' => "Boek uw vlucht"
             ))
         ;
     }
