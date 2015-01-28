@@ -15,6 +15,7 @@ use SCRUM\SwiftairBundle\Entity\Tickets;
 use SCRUM\SwiftairBundle\Entity\Passagiers;
 use SCRUM\SwiftairBundle\Entity\Klanten;
 use SCRUM\SwiftairBundle\Entity\Card;
+use SCRUM\SwiftairBundle\Entity\Klasses;
 
 /**
  * Bestellingen controller.
@@ -254,6 +255,7 @@ class BestellingenController extends Controller
     }
     
     public function bookingAction(Request $request) {
+        $em = $this->getDoctrine()->getEntityManager();
         $destination = new Destination();
         $destinationForm = $this->createFormBuilder($destination)
             ->add('vertrek')
@@ -267,6 +269,7 @@ class BestellingenController extends Controller
         $to = $destinationForm['bestemming']->getData();
         $number = 2;
         $klasse = 1;
+        $class = $em->getRepository('SCRUMSwiftairBundle:Klasses')->find($klasse);
         
         $booking = new Bestellingen();
         $klant = new Klanten();
@@ -284,8 +287,6 @@ class BestellingenController extends Controller
         
         if ($form->isValid()) {
 //            exit (\Doctrine\Common\Util\Debug::dump($booking));
-            $em = $this->getDoctrine()->getEntityManager();
-            
             $klant = $booking->getKlanten()[0];
             $em->persist($klant);
             $em->flush();
@@ -302,7 +303,7 @@ class BestellingenController extends Controller
                 $ticket = new Tickets();
                 $ticket->setBestellingid($booking);
                 $ticket->setPassagierid($passagier);
-                $ticket->setKlasseid($klasse);
+                $ticket->setKlasseid($class);
                 $ticket->setVerzekering($bagage);
                 $ticket->setBagage($verzekering);
                 $ticket->setPrijs(100);
