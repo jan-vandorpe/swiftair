@@ -44,14 +44,14 @@ class Vluchten
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="vertrekdatum", type="date")
+     * @ORM\Column(name="vertrekdatum", type="datetime")
      */
     private $vertrekdatum;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="aankomstdatum", type="date")
+     * @ORM\Column(name="aankomstdatum", type="datetime")
      */
     private $aankomstdatum;
 

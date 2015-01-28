@@ -265,16 +265,19 @@ class BestellingenController extends Controller
         $destinationForm->handleRequest($request);
         $from = $destinationForm['vertrek']->getData();
         $to = $destinationForm['bestemming']->getData();
-        $number = $destinationForm['bestemming']->getData();
-        $klasse = $destinationForm['klasse']->getData();
+        $number = 2;
+        $klasse = 1;
         
         $booking = new Bestellingen();
         $klant = new Klanten();
         $booking->getKlanten()->add($klant);
         $krediet = new Card();
         $booking->getKrediet()->add($krediet);
-        $passagier = new Passagiers();
-        $booking->getPassagiers()->add($passagier);
+        for ($i = 0; $i < $number; $i++) {
+            $passagier = new Passagiers();
+            $booking->getPassagiers()->add($passagier);
+        }
+
         
         $form = $this->createForm(new BestellingenType(), $booking);
         $form->handleRequest($request);
