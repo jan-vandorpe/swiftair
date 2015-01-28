@@ -16,7 +16,7 @@ class CardType extends AbstractType
         $builder
             ->add('nummer')
             ->add('expiration')
-            ->add('typeid', array('empty_value' => 'Please choose a person'))
+            ->add('typeid')
             ->add('naam')
         ;
     }

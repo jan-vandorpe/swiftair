@@ -3,6 +3,7 @@
 namespace SCRUM\SwiftairBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Credit
@@ -69,6 +70,10 @@ class Credit
      */
     public function getNaam()
     {
+        return $this->naam;
+    }
+    
+    public function __toString() {
         return $this->naam;
     }
 }
