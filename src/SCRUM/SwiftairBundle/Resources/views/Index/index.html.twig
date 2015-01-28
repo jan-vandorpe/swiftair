@@ -1,13 +1,44 @@
 {% extends 'SCRUMSwiftairBundle::base.html.twig' %}
 
-{% block body %}
+{% block header %}
+{{ parent () }}
 
 <div class="container">
 	<h1> Welkom op de website van Swiftair! </h1>
     <p> Bij ons kan u de voordeligste vlucht boeken om naar uw droombestemming te gaan. </p>
     
-    <em> Hier komt dan eigenlijk de destination link zodat mensen meteen kunnen zoeken naar vluchten! </em>
-    
+   
 </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+        <div>
+            <div>{{ form_label(form.vertrek) }}</div>
+            <div>{{ form_widget(form.vertrek) }}</div>
+        </div>
+        
+        <div>
+            <div>{{ form_label(form.bestemming) }}</div>
+            <div>{{ form_widget(form.bestemming) }}</div>
+        </div>
+
+        <div>
+            <div>{{ form_label(form.klasse) }}</div>
+            <div>{{ form_widget(form.klasse) }}</div>
+        </div>
+     
+        <div>
+            <div>{{ form_label(form.aantal) }}</div>
+            <div>{{ form_widget(form.aantal) }}</div>
+        </div>
+        
+        <div>
+            {{ form_widget(form.save) }}
+        </div>
+        
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
 

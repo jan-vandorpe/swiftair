@@ -17,31 +17,24 @@
 <div class="tab-content">
 
 			<div role="tabpanel" class="tab-pane active" id="step1">
-            	<h2>Selecteer Vlucht:</h2>
+            	<h2>Selecteer Vlucht</h2>
                 <div>
                     <button type="button" id="nexttab"> Boek uw vlucht </button>
                 </div>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="step2">
-                <h2>Klant Gegevens:</h2>
+                <h2>Klant Gegevens</h2>
                 {% for klant in form.klanten %}
                     <div>{{ form_row(klant.naam) }}</div>
-                    <div>{{ form_row(klant.voornaam) }}</div>
+                    <div> <label for="voornaam" data-toggle="tooltip" data-placement="right" title="Gelieve al uw voornamen in te geven vb. Ann Sofie Fred"> {{ form_row(klant.voornaam) }}</label> </div>
                     <div>{{ form_row(klant.adres) }}</div>
                     <div>{{ form_row(klant.telefoon) }}</div>
                     <div>{{ form_row(klant.email) }}</div>
-                    <div>{{ form_row(klant.kredietkaart) }}</div>
+                    
                 {% endfor %} 
 
-                {% for kaart in form.krediet %}
-                    <div>
-                        <div>{{ form_row(kaart.nummer) }}</div>
-                        <div>{{ form_row(kaart.expiration) }}</div>
-                        <div>{{ form_row(kaart.typeid) }}</div>
-                        <div>{{ form_row(kaart.naam) }}</div>
-                    </div>
-                 {% endfor %}    
+                  
                         
 
                 <div>
@@ -51,15 +44,15 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="step3">
-                <h2>Passagiers:</h2>
+                <h2>Passagiers</h2>
                 <button id="klantgegevens">Gebruik klantgegevens</button>
                 {% for passagier in form.passagiers %}
-                    <div>{{ form_row(passagier.naam) }}</div>
+                    <div><label for="naamPassagier" data-toggle="tooltip" data-placement="right" title="Naam passagier"> {{ form_row(passagier.naam) }}</div>
                     <div>{{ form_row(passagier.voornaam) }}</div>
                     <div>{{ form_row(passagier.adres) }}</div>
-                    <div>{{ form_row(passagier.rijksregister) }}</div>
-                    <div>{{ form_row(passagier.bagage) }}</div>
-                    <div>{{ form_row(passagier.verzekering) }}</div>
+                    <div> <label for="rijksregisternummer" data-toggle="tooltip" data-placement="right" title="vb. 750622-188-32"> {{ form_row(passagier.rijksregister) }} </label></div>
+                    <div><label for="bagage" data-toggle="tooltip" data-placement="right" title="In het vliegpakket zit enkel handbagage. Indien u extra bagage wenst, vink dit aan. (15kg - 15.00€)"> {{ form_row(passagier.bagage) }} </label></div>
+                    <div><label for="verzekering" data-toggle="tooltip" data-placement="right" title="Vink deze optie aan indien u een extra reisverzekering wenst. (15.50€) "> {{ form_row(passagier.verzekering) }} </label></div>
                     <div>{{ form_row(passagier.geboortedatum) }}</div>
                 {% endfor %}
                 <div>
@@ -69,7 +62,20 @@
             </div>
             
             <div role="tabpanel" class="tab-pane" id="step4">
-                <h2>Payment</h2>
+                <h2>Betaling</h2>
+                {% for klant in form.klanten %}
+                <div> <label for="kredietkaart" data-toggle="tooltip" data-placement="right" title="Vink deze optie aan indien u met een kredietkaart wenst te betalen ipv via overschrijving."> {{ 			form_row(klant.kredietkaart) }} </label></div>
+                {% endfor %} 
+                
+                {% for kaart in form.krediet %}
+                    <div>
+                        <div>{{ form_row(kaart.nummer) }}</div>
+                        <div>{{ form_row(kaart.expiration) }}</div>
+                        <div>{{ form_row(kaart.typeid) }}</div>
+                        <div>{{ form_row(kaart.naam) }}</div>
+                    </div>
+                 {% endfor %}  
+                
                 <div>
                     <button type="button" id="prevtab">Ga terug naar 'Passagiersgegevens' </button>
                     <button type="button" id="nexttab">Ga verder naar 'Betaling' </button>
@@ -77,7 +83,7 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="step5">
-                <h2>Confirmation:</h2>
+                <h2>Bevestiging</h2>
                 <div>
                     {{ form_row(form.submit) }}
                 </div>
