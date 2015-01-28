@@ -36,9 +36,16 @@
                     {% endfor %} 
                 </ul>
                 
-{#                <div>
-                    <div>{{ form_row(krediet) }}</div>
-                </div>#}
+                    {% for kaart in form.krediet %}
+                        <div>
+                            <div>{{ form_row(kaart.nummer) }}</div>
+                            <div>{{ form_row(kaart.expiration) }}</div>
+                            <div>{{ form_row(kaart.typeid) }}</div>
+                            <div>{{ form_row(kaart.naam) }}</div>
+                        </div>
+                     {% endfor %}    
+                        
+
                 <div>
                     <button type="button" id="prevtab">Terug naar 'Kies uw vlucht' </button>
                     <button type="button" id="nexttab">Ga door naar 'Passagiersgegevens' </button>
