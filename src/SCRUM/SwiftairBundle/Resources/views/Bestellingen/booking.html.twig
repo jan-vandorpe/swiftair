@@ -64,18 +64,19 @@
             <div role="tabpanel" class="tab-pane" id="step4">
                 <h2>Betaling</h2>
                 {% for klant in form.klanten %}
-                <div class="checkbox"> <label for="kredietkaart" data-toggle="tooltip" data-placement="right" title="Vink deze optie aan indien u met een kredietkaart wenst te betalen ipv via overschrijving."> 
-                <input type="checkbox" onclick="toggle(this,'.checkbox')" > {{form_row(klant.kredietkaart) }} </label></div>
-                {% endfor %} 
-                
+                <div> <label for="kredietkaart" data-toggle="tooltip" data-placement="right" title="Vink deze optie aan indien u met een kredietkaart wenst te betalen ipv via overschrijving."> 
+                {{form_row(klant.kredietkaart) }} </label></div>
                 {% for kaart in form.krediet %}
-                    <div>
+                    <div id="krediet">
                         <div>{{ form_row(kaart.nummer) }}</div>
                         <div>{{ form_row(kaart.expiration) }}</div>
                         <div>{{ form_row(kaart.typeid) }}</div>
                         <div>{{ form_row(kaart.naam) }}</div>
                     </div>
                  {% endfor %}  
+                {% endfor %} 
+                
+                
                 
 
 

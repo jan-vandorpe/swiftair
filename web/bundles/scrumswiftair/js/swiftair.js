@@ -2,6 +2,7 @@ $(function ($) {
     setInterval('fly()',50);
     $('.carousel').carousel();
     $('#inhoud').tabs();
+	$('#krediet').hide();
     
   
   var $tabs = $('.tabbable li');
@@ -53,10 +54,8 @@ window.setTimeout("closeHelpDiv();", 5000);
 function closeHelpDiv(){
     document.getElementById("plane").style.display = "none";
 }
-function toggle(checkbox){
-	var $input = $(this);
-	if($(this).prop('checked'))
-		$(checkbox).show();
-	else
-		$(checkbox).hide();
-	}
+if($('#scrum_swiftairbundle_bestellingen_klanten_0_kredietkaart').is(":checked"))   
+        $("#krediet").show();
+    else
+        $("#krediet").hide();
+
