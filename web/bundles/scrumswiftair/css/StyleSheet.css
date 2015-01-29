@@ -3,11 +3,11 @@
 
 
 body {
-	font-size: 1em;
+	font-size: 1.3em;
 }
 .glyphicon {
 	padding-right: 0.5em;
-	color:#FFFFFF
+	color: #0277bd;
 }
 
 .contact .glyphicon {
@@ -41,6 +41,7 @@ body {
 
 #navbar a {
 	color: #0277bd;
+	
 }
 #myCarousel {
 	margin-top: 7em;
@@ -105,7 +106,7 @@ body {
 
 
 #crumbs  {
-	padding-left:0%;
+	padding-left:0;
 }
 
 #crumbs ul {
@@ -131,6 +132,7 @@ body {
 	text-decoration: none;
 	color: #fff;
 	
+	
 }
 #crumbs ul li a:after {
 	content: "";
@@ -152,6 +154,7 @@ body {
 	top: 0;
 }
 #crumbs ul li:first-child a {
+	padding-right: 15px;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
