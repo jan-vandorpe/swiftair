@@ -3,10 +3,11 @@
 namespace SCRUM\SwiftairBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use SCRUM\SwiftairBundle\Entity\Destination;
 
 class IndexController extends Controller {
-    public function indexAction() {
+    public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         $landen = $em->getRepository('SCRUMSwiftairBundle:Landen')->findAll();
         $klasses = $em->getRepository('SCRUMSwiftairBundle:Klasses')->findAll();
@@ -14,14 +15,19 @@ class IndexController extends Controller {
         $destination = new Destination();
         
         $form = $this->createFormBuilder($destination)
-            ->setAction($this->generateUrl('scrum_swiftair_booking')) 
+//            ->setAction($this->generateUrl('scrum_swiftair_booking')) 
             ->add('vertrek', 'choice', array( 'label' => 'Vertrek:', 'choices' => $this->getChoices($landen)))
             ->add('bestemming', 'choice', array( 'label' => 'Bestemming:', 'choices' => $this->getChoices($landen)))
             ->add('klasse', 'choice', array('label' => 'Klasse', 'choices' => $this->getClasses($klasses)))
             ->add('aantal', 'choice', array('label' => 'Aantal Passagiers', 'choices' => $this->getNumber()))
-            ->add('save', 'submit', array('label' => 'Zoek Vlucht'))
+            ->add('submit', 'submit', array('label' => 'Zoek Vlucht'))
             ->getForm();
         
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) {
+            return $this->redirect($this->generateUrl('scrum_swiftair_booking'));
+        }
         return $this->render('SCRUMSwiftairBundle:Index:index.html.twig', array('landen' => $landen, 'form' => $form->createView()));
     }
     

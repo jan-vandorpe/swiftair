@@ -315,6 +315,7 @@ class BestellingenController extends Controller
             }
             
             $em->flush();
+            return $this->redirect($this->generateUrl('scrum_swiftair_index'));
         }
 
         return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to, 'aantal' => $n, 'klasse' => $k));
