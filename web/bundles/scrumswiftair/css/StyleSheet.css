@@ -13,6 +13,12 @@ body {
 .contact .glyphicon {
 	color:#000000;
 }
+
+#crumbs ul li a .glyphicon {
+	color:white;
+}
+
+
 .slogan {
 	color: #0277bd;
 	padding-left: 1em;
@@ -37,7 +43,9 @@ body {
 	font-weight:bold
 }
 
-
+#boeking {
+	max-height:50%;
+}
 
 #navbar a {
 	color: #0277bd;
@@ -55,12 +63,12 @@ body {
 
 .footer {
 	border-top: 1px solid #eee;
-	position:fixed;
+	position:absolute;
 	bottom:0;
+	background-color:white;
 }
 .footer>p{
 	text-align:center;
-	margin-right:3%;
 }
 
 @media (min-width: 362px) {
