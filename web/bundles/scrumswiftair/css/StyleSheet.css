@@ -46,6 +46,12 @@ body {
 	margin-top: 7em;
 }
 
+#carouselButtons {
+    margin-left: 10px;
+    position: absolute;
+    bottom: 0px;
+}
+
 .footer {
 	border-top: 1px solid #eee;
 	position:fixed;

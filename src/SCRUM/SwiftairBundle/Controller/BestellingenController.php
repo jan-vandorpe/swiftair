@@ -279,7 +279,7 @@ class BestellingenController extends Controller
         $booking->getKlanten()->add($klant);
         $krediet = new Card();
         $booking->getKrediet()->add($krediet);
-        for ($i = 0; $i < $number; $i++) {
+        for ($i = 0; $i < $n; $i++) {
             $passagier = new Passagiers();
             $booking->getPassagiers()->add($passagier);
         }

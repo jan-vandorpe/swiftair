@@ -52,7 +52,7 @@
     <div id="plane" style="position:absolute;left:0; top:50;z-index:2"><img src="{{ asset('bundles/scrumswiftair/images/plane.png') }}"></div>       
                 
   <!-- Carousel -->
-    <div id="myCarousel" class="carousel slide" data-interval="false">
+    <div id="myCarousel" class="carousel slide" data-interval="5000">
         <!-- Indicators voor carousel(in het midden) -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -73,6 +73,15 @@
         <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
+            <!-- stop/play Controls -->
+         <div id="carouselButtons">
+              <button  id="playButton" type="button" class="btn btn-default btn-xs">
+                  <span class="glyphicon glyphicon-play"></span>
+               </button>
+              <button id="pauseButton" type="button" class="btn btn-default btn-xs">
+                  <span class="glyphicon glyphicon-pause"></span>
+              </button>
+        </div>
     </div>
 </div>     
 {% endblock %}
@@ -91,5 +100,25 @@
 
 </div>
 {% endblock %}
+    <!--for carousel --> 
+      <script type="text/javascript">
+        $(document).ready(function(){
+            $('.carousel').carousel();
+        });
+
+            $(function () {
+        $('#myCarousel').carousel({
+            interval:5000,
+            pause: "false"
+        });
+        $('#playButton').click(function () {
+            $('#myCarousel').carousel('cycle');
+        });
+        $('#pauseButton').click(function () {
+            $('#myCarousel').carousel('pause');
+        });
+            });
+
+    </script> 
 </body>
 </html>
