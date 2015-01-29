@@ -103,4 +103,16 @@
         </div>
     </div>
 </div>
+<script>
+$(function ($) {
+    $('#scrum_swiftairbundle_bestellingen_klanten_0_kredietkaart').click(function() {
+        console.log('tst');
+        if($('#scrum_swiftairbundle_bestellingen_klanten_0_kredietkaart').is(":checked"))   
+                $("#krediet").show();
+            else
+                $("#krediet").hide();
+    });
+});
+</script>
 {% endblock %}
+
