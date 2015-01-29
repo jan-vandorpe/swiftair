@@ -14,10 +14,13 @@
             </ul>
 
             {{ form_start(form) }}
-<div class="tab-content">
-
-			<div role="tabpanel" class="tab-pane active" id="step1">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="step1">
             	<h2>Selecteer Vlucht</h2>
+                {{ vertrek }}
+                {{ bestemming }}
+                {{ aantal }}
+                {{ klasse }}
                 <div>
                     <button type="button" id="nexttab"> Boek uw vlucht </button>
                 </div>
@@ -33,9 +36,6 @@
                     <div>{{ form_row(klant.email) }}</div>
                     
                 {% endfor %} 
-
-                  
-                        
 
                 <div>
                     <button type="button" id="prevtab">Terug naar 'Kies uw vlucht' </button>

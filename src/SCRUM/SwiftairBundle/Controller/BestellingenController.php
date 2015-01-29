@@ -267,6 +267,9 @@ class BestellingenController extends Controller
         $destinationForm->handleRequest($request);
         $from = $destinationForm['vertrek']->getData();
         $to = $destinationForm['bestemming']->getData();
+        $n = $destinationForm['aantal']->getData();
+        $k = $destinationForm['klasse']->getData();
+        
         $number = 2;
         $klasse = 1;
         $class = $em->getRepository('SCRUMSwiftairBundle:Klasses')->find($klasse);
@@ -314,6 +317,6 @@ class BestellingenController extends Controller
             $em->flush();
         }
 
-        return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to));
+        return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to, 'aantal' => $n, 'klasse' => $k));
     }
 }
