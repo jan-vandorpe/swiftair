@@ -53,3 +53,10 @@ window.setTimeout("closeHelpDiv();", 5000);
 function closeHelpDiv(){
     document.getElementById("plane").style.display = "none";
 }
+function toggle(checkbox){
+	var $input = $(this);
+	if($(this).prop('checked'))
+		$(checkbox).show();
+	else
+		$(checkbox).hide();
+	}
