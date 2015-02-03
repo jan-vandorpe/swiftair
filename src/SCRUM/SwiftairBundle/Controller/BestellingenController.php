@@ -271,7 +271,6 @@ class BestellingenController extends Controller
         $form->handleRequest($request);
         
         if ($form->isValid()) {
-//            exit (\Doctrine\Common\Util\Debug::dump($booking));
             $klant = $booking->getKlanten()[0];
             $klant->setPassword(123456);
             $em->persist($klant);
@@ -302,5 +301,17 @@ class BestellingenController extends Controller
         }
 
         return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to, 'aantal' => $num, 'klasse' => $klasse));
+    }
+    
+    public function bookingsAction() {
+        $em = $this->getDoctrine()->getManager();
+        $klantid = 1;
+        $bestellingen = $em->getRepository('SCRUMSwiftairBundle:Bestellingen')->findAll();
+        $betret = array();
+        foreach ($bestellingen as $bestelling) {
+            array_push($betret, $bestelling);
+        }
+        
+        return $this->render('SCRUMSwiftairBundle:Bestellingen:bookings.html.twig', array('bestellingen' => $betret));
     }
 }

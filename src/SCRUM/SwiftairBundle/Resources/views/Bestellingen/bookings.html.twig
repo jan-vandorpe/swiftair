@@ -1,0 +1,16 @@
+{% extends 'SCRUMSwiftairBundle::base.html.twig' %}
+
+{% block body -%}
+    <div class="container">
+        Bestellingen
+        <ul>
+        {% for bestelling in bestellingen %}
+            <li>
+            bestellingid = {{ bestelling.id }}
+            <br>
+            klantid = {{ bestelling.klantid.id }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

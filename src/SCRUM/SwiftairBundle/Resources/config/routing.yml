@@ -6,6 +6,10 @@ scrum_swiftair_booking:
     path: /booking/{from}/{to}/{class}/{num}
     defaults: { _controller: SCRUMSwiftairBundle:Bestellingen:booking }
 
+scrum_swiftair_bookings:
+    path: /bookings
+    defaults: { _controller: SCRUMSwiftairBundle:Bestellingen:bookings }
+
 scrum_swiftair_about:
     path: /about
     defaults: { _controller: SCRUMSwiftairBundle:About:index }
