@@ -174,7 +174,8 @@
                 
                 <div class="col-sm-9">
                 {% for passagier in form.passagiers %}
-                	<div class="col-sm-9"> Passagier </div>
+                	<fieldset> 
+                    <div class="col-sm-9"> Passagier </div>
                     <div class="col-sm-6">{{ form_widget(passagier.naam, {'attr': {'class': 'form-control', 'placeholder': 'Achternaam', 'data-toggle': 'tooltip', 'data-placement': 'right', 'title': 'Naam passagier' }} ) }}</div>
                     <div class="col-sm-3">{{ form_widget(passagier.voornaam, {'attr': {'class': 'form-control', 'placeholder': 'Voornaam'}} ) }}</div>
                     <div class="col-sm-9">{{ form_widget(passagier.adres, {'attr': {'class': 'form-control', 'placeholder': 'Adres'}} ) }}</div>
@@ -189,6 +190,7 @@
                     <div class="col-sm-2">{{ form_widget(passagier.verzekering, {'attr': {'class': 'checkbox', 'data-toggle': 'tooltip', 'data-placement': 'right', 'title': 'Vink deze optie aan indien u een extra reisverzekering wenst. (15.50€) ' }} ) }}</div>
                     </div> </div>
                     <div class="col-sm-9">{{ form_row(passagier.geboortedatum, {'attr': {'class': 'form-control', 'type': 'date'}} ) }} </div>
+                    </fieldset>
                     
                 {% endfor %}
                 <div class="col-sm-9">
