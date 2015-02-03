@@ -10,7 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use SCRUM\SwiftairBundle\Entity\Bestellingen;
 use SCRUM\SwiftairBundle\Form\BestellingenType;
 
-use SCRUM\SwiftairBundle\Entity\Destination;
 use SCRUM\SwiftairBundle\Entity\Tickets;
 use SCRUM\SwiftairBundle\Entity\Passagiers;
 use SCRUM\SwiftairBundle\Entity\Klanten;
@@ -254,36 +253,19 @@ class BestellingenController extends Controller
         ;
     }
     
-    public function bookingAction(Request $request) {
-        $em = $this->getDoctrine()->getEntityManager();
-        $destination = new Destination();
-        $destinationForm = $this->createFormBuilder($destination)
-            ->add('vertrek')
-            ->add('bestemming')
-            ->add('aantal')
-            ->add('klasse')
-            ->getForm();
-        
-        $destinationForm->handleRequest($request);
-        $from = $destinationForm['vertrek']->getData();
-        $to = $destinationForm['bestemming']->getData();
-        $n = $destinationForm['aantal']->getData();
-        $k = $destinationForm['klasse']->getData();
-        
-        $number = 2;
-        $klasse = 1;
-        $class = $em->getRepository('SCRUMSwiftairBundle:Klasses')->find($klasse);
+    public function bookingAction(Request $request ,$from, $to, $class, $num) {
+        $em = $this->getDoctrine()->getManager();
+        $klasse = $em->getRepository('SCRUMSwiftairBundle:Klasses')->find($class);
         
         $booking = new Bestellingen();
         $klant = new Klanten();
         $booking->getKlanten()->add($klant);
         $krediet = new Card();
         $booking->getKrediet()->add($krediet);
-        for ($i = 0; $i < $number; $i++) {
+        for ($i = 0; $i < $num; $i++) {
             $passagier = new Passagiers();
             $booking->getPassagiers()->add($passagier);
         }
-
         
         $form = $this->createForm(new BestellingenType(), $booking);
         $form->handleRequest($request);
@@ -291,6 +273,7 @@ class BestellingenController extends Controller
         if ($form->isValid()) {
 //            exit (\Doctrine\Common\Util\Debug::dump($booking));
             $klant = $booking->getKlanten()[0];
+            $klant->setPassword(123456);
             $em->persist($klant);
             $em->flush();
             $booking->setKlantid($klant);
@@ -306,7 +289,7 @@ class BestellingenController extends Controller
                 $ticket = new Tickets();
                 $ticket->setBestellingid($booking);
                 $ticket->setPassagierid($passagier);
-                $ticket->setKlasseid($class);
+                $ticket->setKlasseid($klasse);
                 $ticket->setVerzekering($bagage);
                 $ticket->setBagage($verzekering);
                 $ticket->setPrijs(100);
@@ -318,6 +301,6 @@ class BestellingenController extends Controller
             return $this->redirect($this->generateUrl('scrum_swiftair_index'));
         }
 
-        return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to, 'aantal' => $n, 'klasse' => $k));
+        return $this->render('SCRUMSwiftairBundle:Bestellingen:booking.html.twig', array('form' => $form->createView(), 'vertrek' => $from, 'bestemming' => $to, 'aantal' => $num, 'klasse' => $klasse));
     }
 }

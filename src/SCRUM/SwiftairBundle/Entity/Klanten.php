@@ -60,6 +60,13 @@ class Klanten
     /**
      * @var string
      *
+     * @ORM\Column(name="password", type="string", length=255)
+     */
+    private $password;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="kredietkaart", type="string", length=255)
      */
     private $kredietkaart;
@@ -201,6 +208,29 @@ class Klanten
         return $this->email;
     }
 
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return Klanten
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    
     /**
      * Set kredietkaart
      *

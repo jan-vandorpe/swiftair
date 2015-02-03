@@ -26,7 +26,11 @@ class IndexController extends Controller {
         $form->handleRequest($request);
         
         if ($form->isValid()) {
-            return $this->redirect($this->generateUrl('scrum_swiftair_booking'));
+            $from = $form['vertrek']->getData();
+            $to = $form['bestemming']->getData();
+            $class = $form['klasse']->getData();
+            $num = $form['aantal']->getData();
+            return $this->redirect($this->generateUrl('scrum_swiftair_booking', array('from' => $from, 'to' => $to, 'class' => $class, 'num' => $num)));
         }
         return $this->render('SCRUMSwiftairBundle:Index:index.html.twig', array('landen' => $landen, 'form' => $form->createView()));
     }
