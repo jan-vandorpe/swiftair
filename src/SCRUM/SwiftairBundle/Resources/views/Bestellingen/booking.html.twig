@@ -9,22 +9,19 @@
         <div class="tabbable" id="crumbs">
         <!-- nav tabs --> 
             <ul class="nav nav-justified" role="tablist">
-                <li role="presentation" ><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Kies uw vlucht</span></a></li>
+                <li role="presentation" class="active" ><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Kies uw vlucht</span></a></li>
                 <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Klantgegevens </span></a></li>
                 <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Passagiersgegevens</span></a></li>
-                <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Betaling </span></a></li>
-                <li role="presentation"><a href="#step5" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging</span></a></li>
+                <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging </span></a></li>
+                <li role="presentation"><a href="#step5" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Betaling</span></a></li>
             </ul>
 
             {{ form_start(form) }}
-            <div class="tab-content" >
+            <div class="tab-content scroll" >
                 <div role="tabpanel" class="tab-pane active" id="step1">
             	<h2><span class="glyphicon glyphicon-search"></span><span class="liText"> Kies uw vlucht</span></h2>
                 <p> Geef uw gewenste bestemming in en ga op zoek naar de vlucht die u daar brengt! </p>
-                {{ vertrek }}
-                {{ bestemming }}
-                {{ aantal }}
-                {{ klasse }}
+                
 	<table>
 		<thead>
 			<td>Vluchtcode</td>
@@ -136,7 +133,7 @@
 	</table>
 
                 <div>
-                    <button type="button" id="nexttab">Ga verder naar 'Klantgegevens'</button>
+                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab">Ga verder naar 'Klantgegevens'</button>
                 </div>
             </div>
 
@@ -160,7 +157,7 @@
 				
                 <div class="col-sm-9">
                     <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="prevtab">Terug naar 'Kies uw vlucht' </button>
-                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab">Ga verder naar 'Passagiersgegevens'</button>
+                    <button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="nexttab">Ga verder naar 'Passagiersgegevens'</button>
                 </div>
                 </div>
                 
@@ -171,11 +168,11 @@
                 <p> Vul hier per passagier de persoonlijke gegevens in. Zorg dat deze correct zijn, zodat uw verdere boeking vlot kan verlopen. </p>
                 
                 <button class="btn btn-primary btn-sm col-sm-2 formknop" id="klantgegevens">Gebruik klantgegevens</button>
-                
+                <script> var n = 1; </script>
                 <div class="col-sm-9">
                 {% for passagier in form.passagiers %}
                 	<fieldset> 
-                    <div class="col-sm-9"> Passagier </div>
+                    <h5> <script> document.write('<div class="col-sm-9" id="passagier' + n + '">Gegevens Passagier ' + n + '</div>'); n += 1; </script></h5>
                     <div class="col-sm-6">{{ form_widget(passagier.naam, {'attr': {'class': 'form-control', 'placeholder': 'Achternaam', 'data-toggle': 'tooltip', 'data-placement': 'right', 'title': 'Naam passagier' }} ) }}</div>
                     <div class="col-sm-3">{{ form_widget(passagier.voornaam, {'attr': {'class': 'form-control', 'placeholder': 'Voornaam'}} ) }}</div>
                     <div class="col-sm-9">{{ form_widget(passagier.adres, {'attr': {'class': 'form-control', 'placeholder': 'Adres'}} ) }}</div>
@@ -189,7 +186,7 @@
                     <div class="col-sm-4"> {{ form_label(passagier.verzekering) }} </div>
                     <div class="col-sm-2">{{ form_widget(passagier.verzekering, {'attr': {'class': 'checkbox', 'data-toggle': 'tooltip', 'data-placement': 'right', 'title': 'Vink deze optie aan indien u een extra reisverzekering wenst. (15.50€) ' }} ) }}</div>
                     </div> </div>
-                    <div class="col-sm-9">{{ form_row(passagier.geboortedatum, {'attr': {'class': 'form-control', 'type': 'date'}} ) }} </div>
+                    <div class="col-sm-9">{{ form_row(passagier.geboortedatum, {'attr': {'class': 'form-control'}}) }} </div>
                     </fieldset>
                     
                 {% endfor %}
@@ -201,42 +198,42 @@
             </div> 
             
             <div role="tabpanel" class="tab-pane" id="step4">
-                <h2>Betaling</h2>
-                {% for klant in form.klanten %}
-                <div> <label for="kredietkaart" data-toggle="tooltip" data-placement="right" title="Vink deze optie aan indien u met een kredietkaart wenst te betalen ipv via overschrijving."> 
-                {{form_row(klant.kredietkaart) }} </label></div>
-                {% for kaart in form.krediet %}
-                    <div id="krediet">
-                        <div>{{ form_row(kaart.nummer) }}</div>
-                        <div>{{ form_row(kaart.expiration) }}</div>
-                        <div>{{ form_row(kaart.typeid) }}</div>
-                        <div>{{ form_row(kaart.naam) }}</div>
-                    </div>
-                    <div>
-                    Indien u niet met een kredietkaart wenst te betalen. Vinkt u deze optie niet aan. Er zal uw dan een overschrijving worden verzonden op uw ingegeven adres bij 'klantgegevens' 
-                    </div>
-                 {% endfor %}  
-                {% endfor %} 
-                
-                
-                
-
-
-                
-                
-                
-                
+            <h2><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging</span></h2>
                 <div>
-                    <button type="button" id="prevtab">Terug naar 'Passagiersgegevens' </button>
-                    <button type="button" id="nexttab">Ga verder naar 'Betaling' </button>
+                   <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab"> Ga naar 'Betalen' </button> 
                 </div>
+                
             </div>
 
             <div role="tabpanel" class="tab-pane" id="step5">
-                <h2>Bevestiging</h2>
-                <div>
-                    {{ form_row(form.submit) }}
-                </div>
+              <h2><span class="glyphicon glyphicon-euro"></span><span class="liText"> Betaling </span></h2>
+                {% for klant in form.klanten %}
+                <div class="col-sm-5">
+                <div class="col-sm-3"> {{form_label(klant.kredietkaart) }} </div>
+                <div> {{form_widget(klant.kredietkaart, {'attr': {'class': 'checkbox', 'data-toggle': 'tooltip', 'data-placement': 'right', 'title': 'Vink deze optie aan indien u met een kredietkaart wenst te betalen ipv via overschrijving.' }} ) }} </div> </div>
+                <div class="col-sm-9"> Indien u niet met een kredietkaart wenst te betalen. Vinkt u deze optie niet aan. Er zal uw dan een overschrijving worden verzonden op uw ingegeven adres bij 'klantgegevens' </div>
+                
+                {% for kaart in form.krediet %}
+                    <div id="krediet" class="col-sm-9">
+                    <fieldset>
+                        <div class="col-sm-9">{{ form_row(kaart.nummer, {'attr': {'class': 'form-control', 'placeholder': 'Kaartnummer'}} ) }}</div>
+                        <div class="col-sm-9"> 
+                        <div class="col-sm-2"> {{ form_label(kaart.expiration) }}</div> 
+                        <div class="col-sm-5"> {{ form_widget(kaart.expiration) }} </div></div>
+                        <div class="col-sm-9"> 
+                        <div class="col-sm-2"> {{ form_label(kaart.typeid) }}</div> 
+                        <div class="col-sm-5"> {{ form_widget(kaart.typeid, {'attr': {'class': 'form-control'}} ) }} </div></div>
+                        <div class="col-sm-9">{{ form_row(kaart.naam, {'attr': {'class': 'form-control', 'placeholder': 'Naam Kaarthouder', 'data-toggle': 'tooltip', 'data-placement': 'right', 'title': 'Geef hier de naam van de kaarthouder in.'}} ) }}</div>
+                        </fieldset>
+                    </div>
+                    
+                 {% endfor %}  
+                {% endfor %} 
+                
+                 <div>
+                 {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm col-sm-4 formknop'}} ) }}
+                 
+                </div>  
             </div>
 
             

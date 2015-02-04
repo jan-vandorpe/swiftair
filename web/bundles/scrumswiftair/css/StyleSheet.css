@@ -79,9 +79,21 @@ body {
 .form-control {
 	margin:2% 2% 2% 0;
 	font-weight:normal;
-	
 }
-
+fieldset {
+	border:none;
+	margin:1%;
+}
+h5 {
+	color: #0277bd;
+	font-weight:600;
+	font-variant:small-caps;
+	font-size:1.25em;
+}
+.scroll {
+	overflow:hidden;
+	margin-bottom:6%;
+}
 
 
 @media (min-width: 362px) {
