@@ -8,7 +8,7 @@
     <div role="tabpanel" class= "masthead">
         <div class="tabbable" id="crumbs">
         <!-- nav tabs --> 
-            <ul class="nav nav-justified" role="tablist">
+            <ul class="nav-justified" role="tablist">
                 <li role="presentation" class="active" ><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Kies uw vlucht</span></a></li>
                 <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Klantgegevens </span></a></li>
                 <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Passagiersgegevens</span></a></li>
@@ -199,6 +199,70 @@
             
             <div role="tabpanel" class="tab-pane" id="step4">
             <h2><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging</span></h2>
+            
+            <p class="col-sm-12"> Klik op onderstaande links voor een overzicht van uw gegevens. Bent u akkoord met bovenstaande gegevens, ga dan verder naar betalen om de boeking te bevestigen. Zoniet, pas de nodige gegevens aan.  </p>
+            <div class="row"> 
+            <fieldset>
+            <button class="btn btn-warning col-sm-7 " type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">Vluchtinformatie </button>
+            <div class="collapse col-sm-12" id="collapse1">
+              <div class="well col-sm-7">
+               	<ul class="bevestigingsinfo"> 
+              	<li> Van </li>
+                <li> Naar </li>
+                <li> Vluchtcode </li>
+                <li> Reisklasse </li>
+                <li> Vertrektijd </li>
+                <li> Aankomsttijd </li>
+                </ul>
+              </div>
+            </div>
+            </fieldset>
+            
+            <fieldset> 
+            <button class="btn btn-primary col-sm-7" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">Gegevens Passagiers </button>
+            <div class="collapse col-sm-12" id="collapse2">
+              <div class="well col-sm-7">
+              <ul class="bevestigingsinfo"> 
+              	<li> Naam </li>
+                <li> Voornaam </li>
+                <li> Adres </li>
+                <li> Rijksregisternummer </li>
+                <li> Geboortedatum </li>
+                <li> Extra bagage (ja/nee) </li>
+                <li> Reisverzekering (ja/nee) </li>
+              </ul>
+              
+               	
+              </div>
+            </div>
+            </fieldset>
+            
+            <fieldset> 
+            <button class="btn btn-info col-sm-7" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">Gegevens Klant </button>
+            <div class="collapse col-sm-12" id="collapse3">
+              <div class="well col-sm-7">
+              <ul class="bevestigingsinfo"> 
+              	<li> Naam </li>
+                <li> Voornaam </li>
+                <li> Adres </li>
+                <li> Telefoon </li>
+                <li> Email </li>
+              </ul>
+              </div>
+            </div>
+            </fieldset>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
                 <div>
                 	<button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="prevtab3">Terug naar 'Passagiersgegevens'</button>
                    	<button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab5"> Ga naar 'Betalen' </button> 
@@ -220,7 +284,7 @@
                         <div class="col-sm-9">{{ form_row(kaart.nummer, {'attr': {'class': 'form-control', 'placeholder': 'Kaartnummer'}} ) }}</div>
                         <div class="col-sm-9"> 
                         <div class="col-sm-2"> {{ form_label(kaart.expiration) }}</div> 
-                        <div class="col-sm-5"> {{ form_widget(kaart.expiration) }} </div></div>
+                        <div class="col-sm-5"> {{ form_widget(kaart.expiration, {'attr': {'class': 'form-control'}} ) }} </div></div>
                         <div class="col-sm-9"> 
                         <div class="col-sm-2"> {{ form_label(kaart.typeid) }}</div> 
                         <div class="col-sm-5"> {{ form_widget(kaart.typeid, {'attr': {'class': 'form-control'}} ) }} </div></div>

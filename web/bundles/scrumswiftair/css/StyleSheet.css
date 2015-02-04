@@ -75,7 +75,20 @@ body {
 
 
 
-
+fieldset {
+	border:none;
+	margin:1%;
+}
+h5 {
+	color: #0277bd;
+	font-weight:600;
+	font-variant:small-caps;
+	font-size:1.25em;
+}
+.scroll {
+	overflow:hidden;
+	margin-bottom:6%;
+}
 
 
 
@@ -101,7 +114,6 @@ body {
 	font-weight:normal;
 	
 }
-
 
 
 
@@ -280,11 +292,11 @@ body {
 
 
 #crumbs ul li.active a {
-	background: green; 
+	background: #31b0d5; 
 	}
 	
 #crumbs ul li.active a:after {
-		border-left: 17px solid green;
+		border-left: 17px solid #31b0d5;
 	}
 
 
