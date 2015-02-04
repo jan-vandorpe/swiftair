@@ -15,7 +15,7 @@ class CardType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('nummer')
-            ->add('expiration')
+            ->add('expiration', 'date', array('widget' => 'single_text', 'format' => 'yyyy-MM-dd'))
             ->add('typeid')
             ->add('naam')
         ;
