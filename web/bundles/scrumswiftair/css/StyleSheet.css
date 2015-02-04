@@ -119,16 +119,16 @@ h5 {
 	
 }
 
-#bevestigingsinfo #bevestig {
+#bevestigingsinfo .bevestig {
 	display:block;
 	text-align:left;
 	padding-left:4em;
 }
-#bevestigingsinfo #bevestig li {
+#bevestigingsinfo .bevestig li {
 	display:block;
 	
 }
-#bevestigingsinfo #bevestig li em{
+#bevestigingsinfo .bevestig li em{
 	display:block;
 	font-style:normal;
 	font-weight:bold;
