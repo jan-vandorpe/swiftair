@@ -202,68 +202,66 @@
             
             <p class="col-sm-12"> Klik op onderstaande links voor een overzicht van uw gegevens. Bent u akkoord met bovenstaande gegevens, ga dan verder naar betalen om de boeking te bevestigen. Zoniet, pas de nodige gegevens aan.  </p>
             <div class="row"> 
-            <fieldset>
-            <button class="btn btn-warning col-sm-7 " type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">Vluchtinformatie </button>
-            <div class="collapse col-sm-12" id="collapse1">
-              <div class="well col-sm-7">
-               	<ul class="bevestigingsinfo"> 
-              	<li> Van </li>
-                <li> Naar </li>
-                <li> Vluchtcode </li>
-                <li> Reisklasse </li>
-                <li> Vertrektijd </li>
-                <li> Aankomsttijd </li>
+            <fieldset >
+            <button class="btn btn-warning col-sm-7 " type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseExample" id="confirm">Vluchtinformatie </button>
+            <div class="collapsing col-sm-12" id="collapse1">
+              <div class="well col-sm-7" id="bevestigingsinfo">
+               	<ul id="bevestig"> 
+              	<li> Van <em> Brussel</em></li>
+                <li> Naar <em> Madrid </em></li>
+                <li> Vluchtcode <em>FR9855 </em> </li>
+                <li> Reisklasse <em> Economy </em></li>
+                <li> Vertrektijd <em> 11 april 2015 17:30 </em></li>
+                <li> Aankomsttijd <em> 11 april 2015 20:30 </em></li>
                 </ul>
               </div>
             </div>
             </fieldset>
             
-            <fieldset> 
-            <button class="btn btn-primary col-sm-7" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">Gegevens Passagiers </button>
-            <div class="collapse col-sm-12" id="collapse2">
-              <div class="well col-sm-7">
-              <ul class="bevestigingsinfo"> 
-              	<li> Naam </li>
-                <li> Voornaam </li>
-                <li> Adres </li>
-                <li> Rijksregisternummer </li>
-                <li> Geboortedatum </li>
-                <li> Extra bagage (ja/nee) </li>
-                <li> Reisverzekering (ja/nee) </li>
-              </ul>
-              
-               	
+            <fieldset > 
+            <button class="btn btn-primary col-sm-7" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample" id="confirm">Gegevens Passagiers </button>
+            <div class="collapsing col-sm-12" id="collapse2">
+              <div class="well col-sm-7" id="bevestigingsinfo">
+              <ul id="bevestig"> 
+              	<li> Aantal passagiers <em> 2 </em> </li>
+                <li> <h5> passagier 1 </h5> </li>
+              	<li> Naam <em> Janssens </em></li>
+                <li> Voornaam <em> Johan </em></li>
+                <li> Adres <em> Straat 5 5599 DORP </em> </li>
+                <li> Rijksregisternummer <em> 550814-351-95 </em> </li>
+                <li> Geboortedatum <em> 1955-08-14 </em> </li>
+                <li> Extra bagage  <em> JA </em> </li>
+                <li> Reisverzekering <em> NEE </em> </li>
+                <li> <h5> passagier 1 </h5> </li>
+              	<li> Naam <em> Peeters </em></li>
+                <li> Voornaam <em> Valerie </em></li>
+                <li> Adres <em> Straat 5 5599 DORP </em> </li>
+                <li> Rijksregisternummer <em> 640725-351-95 </em> </li>
+                <li> Geboortedatum <em> 1964-07-25 </em> </li>
+                <li> Extra bagage  <em> JA </em> </li>
+                <li> Reisverzekering <em> NEE </em> </li>
+              </ul> 	
               </div>
             </div>
             </fieldset>
             
-            <fieldset> 
-            <button class="btn btn-info col-sm-7" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">Gegevens Klant </button>
-            <div class="collapse col-sm-12" id="collapse3">
-              <div class="well col-sm-7">
-              <ul class="bevestigingsinfo"> 
-              	<li> Naam </li>
-                <li> Voornaam </li>
-                <li> Adres </li>
-                <li> Telefoon </li>
-                <li> Email </li>
+            <fieldset > 
+            <button class="btn btn-info col-sm-7" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample" id="confirm">Gegevens Klant </button>
+            <div class="collapsing col-sm-12" id="collapse3">
+              <div class="well col-sm-7" id="bevestigingsinfo">
+              <ul id="bevestig"> 
+              	<li> Naam <em> Janssens </em></li>
+                <li> Voornaam <em> Johan </em></li>
+                <li> Adres <em> Straat 5 5599 DORP </em> </li>
+                <li> Telefoon <em> 0498 12 33 45 </em></li>
+                <li> Email <em> emailadres@komt.hier </em> </li>
               </ul>
               </div>
             </div>
             </fieldset>
             </div>
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                <div>
+                <div >
                 	<button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="prevtab3">Terug naar 'Passagiersgegevens'</button>
                    	<button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab5"> Ga naar 'Betalen' </button> 
                 </div>

@@ -115,6 +115,41 @@ h5 {
 	
 }
 
+#bevestigingsinfo #bevestig {
+	display:block;
+	text-align:left;
+	padding-left:4em;
+}
+#bevestigingsinfo #bevestig li {
+	display:block;
+	
+}
+#bevestigingsinfo #bevestig li em{
+	display:block;
+	font-style:normal;
+	font-weight:bold;
+	float:right;
+	padding-right:4em;
+}
+#confirm, #bevestigingsinfo{
+	margin:0 4%;
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-timing-function: ease;
+       -o-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: .7s;
+       -o-transition-duration: .7s;
+          transition-duration: .7s;
+  -webkit-transition-property: height, visibility;
+       -o-transition-property: height, visibility;
+          transition-property: height, visibility;
+}
+
 
 
 
