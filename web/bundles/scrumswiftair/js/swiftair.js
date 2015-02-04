@@ -9,14 +9,14 @@ $(function ($) {
 	$("button[id^='prevtab']").click(function() {
             $tabs.filter('.active').prev('li').find('a[data-toggle="tab"]').tab('show');
             var nId = parseInt(this.id.match(/\d+/)[0]);
-            if(nId == 2) {
+            if(nId == 4) {
                 getData();
             }
 	}); 
  	$("button[id^='nexttab']").click(function() {
             $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
             var nId = parseInt(this.id.match(/\d+/)[0]);
-            if(nId == 2) {
+            if(nId == 4) {
                 getData();
             }
 	}); 
@@ -32,38 +32,68 @@ $(function ($) {
     });
     
     function getData(){
+        var eBevestig1 = $('#bevestig1');
+        var eBevestig2 = $('#bevestig2');
+        var eBevestig3 = $('#bevestig3');
+//        eBevestig1.empty();
+        eBevestig2.empty();
+        eBevestig3.empty();
+        
         var klantNaam = $('#scrum_swiftairbundle_bestellingen_klanten_0_naam').val();
         var klantVoornaam = $('#scrum_swiftairbundle_bestellingen_klanten_0_voornaam').val();
         var klantAdres = $('#scrum_swiftairbundle_bestellingen_klanten_0_adres').val();
         var klantTelefoon = $('#scrum_swiftairbundle_bestellingen_klanten_0_telefoon').val();
         var klantEmail = $('#scrum_swiftairbundle_bestellingen_klanten_0_email').val();
+
+        var liNaam = $('<li> Naam <em> ' + klantNaam + ' </em></li>');
+        var liVoornaam = $('<li> Voornaam <em> ' + klantVoornaam + ' </em></li>');
+        var liAdres = $('<li> Adres <em> ' + klantAdres + ' </em> </li>');
+        var liTel = $('<li> Telefoon <em> ' + klantTelefoon + ' </em></li>');
+        var liEmail = $('<li> Email <em> ' + klantEmail + ' </em> </li>');
         
-//        console.log(klantNaam);
-//        console.log(klantVoornaam);
-//        console.log(klantAdres);
-//        console.log(klantTelefoon);
-//        console.log(klantEmail);
+        eBevestig3.append(liNaam)
+            .append(liVoornaam)
+            .append(liAdres)
+            .append(liTel)
+            .append(liEmail);
+
         
-        var passagierNaam = $('#scrum_swiftairbundle_bestellingen_passagiers_0_naam').val();
-        var passagierVoornaam = $('#scrum_swiftairbundle_bestellingen_passagiers_0_voornaam').val();
-        var passagierAdres = $('#scrum_swiftairbundle_bestellingen_passagiers_0_adres').val();
-        var passagierRijksregister = $('#scrum_swiftairbundle_bestellingen_passagiers_0_rijksregister').val();
-        var passagierDatum = $('#scrum_swiftairbundle_bestellingen_passagiers_0_geboortedatum').val();
-        var passagierBagage = $('#scrum_swiftairbundle_bestellingen_passagiers_0_bagage').prop('checked');
-        var passagierVerzekering = $('#scrum_swiftairbundle_bestellingen_passagiers_0_verzekering').prop('checked');
-        
-//        console.log(passagierNaam);
-//        console.log(passagierVoornaam);
-//        console.log(passagierAdres);
-//        console.log(passagierRijksregister);
-//        console.log(passagierDatum);
-//        console.log(passagierBagage);
-//        console.log(passagierVerzekering);
+        var nAantalPassagiers = $("div[id^='passagier']").length;
+        var liAantalPassagiers = $('<li> Aantal passagiers <em> ' + nAantalPassagiers + ' </em> </li>');
+        eBevestig2.append(liAantalPassagiers);
         
         $("div[id^='passagier']").each(function() {
             var nId = parseInt(this.id.match(/\d+/)[0]);
-            console.log(nId);
-        })
+            var passagierNaam = $('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_naam').val();
+            var passagierVoornaam = $('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_voornaam').val();
+            var passagierAdres = $('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_adres').val();
+            var passagierRijksregister = $('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_rijksregister').val();
+            var passagierDatum = $('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_geboortedatum').val();
+            var passagierBagage = 'Nee';
+            var passagierVerzekering = 'Nee';
+            
+            if ($('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_bagage').prop('checked')) { passagierBagage = 'Ja'; }
+            if ($('#scrum_swiftairbundle_bestellingen_passagiers_' + parseInt(nId - 1) + '_verzekering').prop('checked')) { passagierVerzekering = 'Ja'; }
+            
+            
+            var liPassagier = $('<li> <h5> Passagier ' + nId + ' </h5> </li>');
+            var liPNaam = $('<li> Naam <em> ' + passagierNaam + ' </em></li>');
+            var liPVoornaam = $('<li> Voornaam <em> ' + passagierVoornaam + ' </em></li>');
+            var liPAdres = $('<li> Adres <em> ' + passagierAdres + ' </em> </li>');
+            var liPRr = $('<li> Rijksregisternummer <em> ' + passagierRijksregister + ' </em> </li>');
+            var liPDatum = $('<li> Geboortedatum <em> ' + passagierDatum + ' </em> </li>');
+            var liPBagage = $('<li> Extra bagage  <em> ' + passagierBagage + '</em> </li>');
+            var liPVerzekering = $('<li> Reisverzekering <em> ' + passagierVerzekering + ' </em> </li>');         
+            
+            eBevestig2.append(liPassagier)
+                .append(liPNaam)
+                .append(liPVoornaam)
+                .append(liPAdres)
+                .append(liPRr)
+                .append(liPDatum)
+                .append(liPBagage)
+                .append(liPVerzekering);
+        });
     }
 });
 
