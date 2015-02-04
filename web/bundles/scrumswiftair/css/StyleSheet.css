@@ -55,11 +55,31 @@ body {
 	margin-top: 7em;
 }
 
+
+.carousel .item img{
+	border-radius: 10px 10px 10px 10px;
+}
+
+
+.carousel-control {
+	border-radius : 10px;
+	}
+
+
 #carouselButtons {
     margin-left: 10px;
     position: absolute;
     bottom: 0px;
+	 z-index: 2;
 }
+
+
+
+
+
+
+
+
 
 .footer {
 	border-top: 1px solid #eee;
@@ -79,21 +99,70 @@ body {
 .form-control {
 	margin:2% 2% 2% 0;
 	font-weight:normal;
+	
 }
-fieldset {
-	border:none;
-	margin:1%;
+
+
+
+
+
+
+
+/* Carousel fade effect*/
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
 }
-h5 {
-	color: #0277bd;
-	font-weight:600;
-	font-variant:small-caps;
-	font-size:1.25em;
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
 }
-.scroll {
-	overflow:hidden;
-	margin-bottom:6%;
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+/* z-index: 2;*/
 }
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+ z-index: 0;
+}
+
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+
+
+
+
+
+
+
 
 
 @media (min-width: 362px) {
@@ -164,7 +233,8 @@ h5 {
 	font-size: 1em;
 	text-decoration: none;
 	color: #fff;
-	width:19%
+	width:19%;
+	line-height: 2.5;
 	
 	
 }
@@ -206,3 +276,15 @@ h5 {
 #crumbs ul li:last-child a:after {
 	display: none;
 }
+
+
+
+#crumbs ul li.active a {
+	background: green; 
+	}
+	
+#crumbs ul li.active a:after {
+		border-left: 17px solid green;
+	}
+
+
