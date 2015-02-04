@@ -12,7 +12,7 @@
                 <li role="presentation" class="active" ><a href="#step1" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><span class="liText"> Kies uw vlucht</span></a></li>
                 <li role="presentation"><a href="#step2" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-filter"></span><span class="liText"> Klantgegevens </span></a></li>
                 <li role="presentation"><a href="#step3" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list"></span><span class="liText"> Passagiersgegevens</span></a></li>
-                <li role="presentation"><a href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging </span></a></li>
+                <li role="presentation"><a id="confirm" href="#step4" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging </span></a></li>
                 <li role="presentation"><a href="#step5" aria-controls="Search" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-euro"></span><span class="liText"> Betaling</span></a></li>
             </ul>
 
@@ -133,7 +133,7 @@
 	</table>
 
                 <div>
-                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab">Ga verder naar 'Klantgegevens'</button>
+                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab2">Ga verder naar 'Klantgegevens'</button>
                 </div>
             </div>
 
@@ -156,8 +156,8 @@
 
 				
                 <div class="col-sm-9">
-                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="prevtab">Terug naar 'Kies uw vlucht' </button>
-                    <button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="nexttab">Ga verder naar 'Passagiersgegevens'</button>
+                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="prevtab1">Terug naar 'Kies uw vlucht' </button>
+                    <button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="nexttab3">Ga verder naar 'Passagiersgegevens'</button>
                 </div>
                 </div>
                 
@@ -191,8 +191,8 @@
                     
                 {% endfor %}
                 <div class="col-sm-9">
-                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="prevtab">Terug naar 'Klantgegevens'</button>
-                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab">Ga verder naar 'Bevestiging' </button>
+                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="prevtab2">Terug naar 'Klantgegevens'</button>
+                    <button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab4">Ga verder naar 'Bevestiging' </button>
                 </div>
                 </div> 
             </div> 
@@ -200,8 +200,8 @@
             <div role="tabpanel" class="tab-pane" id="step4">
             <h2><span class="glyphicon glyphicon-ok"></span><span class="liText"> Bevestiging</span></h2>
                 <div>
-                	<button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="prevtab">Terug naar 'Passagiersgegevens'</button>
-                   	<button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab"> Ga naar 'Betalen' </button> 
+                	<button class="btn btn-primary btn-sm col-sm-5 formknop" type="button" id="prevtab3">Terug naar 'Passagiersgegevens'</button>
+                   	<button class="btn btn-primary btn-sm col-sm-4 formknop" type="button" id="nexttab5"> Ga naar 'Betalen' </button> 
                 </div>
                 
             </div>
