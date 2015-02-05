@@ -29,4 +29,8 @@ class ProfileController extends Controller {
         
         return $this->render('SCRUMSwiftairBundle:Profile:profile.html.twig', array('form' => $form->createView()));
     }
+    
+    public function ticketsAction() {
+        return $this->render('SCRUMSwiftairBundle:Profile:tickets.html.twig');
+    }
 }

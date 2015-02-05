@@ -16,7 +16,7 @@ scrum_swiftair_about:
 
 scrum_swiftair_profile:
     path: /profile
-    defaults: { _controller: SCRUMSwiftairBundle:Profile:index }
+    defaults: { _controller: SCRUMSwiftairBundle:Profile:tickets }
 
 scrum_swiftair_contact:
     path: /contact
