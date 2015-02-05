@@ -3,11 +3,18 @@
 
 
 body {
-	font-size: 1.3em;
+	font-size: 1.6em;
+}
+input{
+	text-transform:capitalize;
 }
 .glyphicon {
 	padding-right: 0.5em;
 	color: #0277bd;
+}
+.checkbox, .radio{
+	height:20px;
+	width:20px;
 }
 
 .contact .glyphicon {
