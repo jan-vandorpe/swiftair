@@ -7,15 +7,15 @@
 
 {% block body %}
     <div class="container">
-<div role="tabpanel" class= "masthead">
-<div class="tabbable" id="crumbs">
-<div role="tabpanel">
+<div role="tabpanel" class= "masthead" >
+<div class="tabbable" id="crumbs2">
+
 
   <!-- Nav tabs -->
-  <ul class="nav-justified" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#frieda" aria-controls="profile" role="tab" data-toggle="tab">PEETERS Frieda</a></li>
-    <li role="presentation"><a href="#jan" aria-controls="profile" role="tab" data-toggle="tab">JANSSENS Jan</a></li>
+  <ul class="nav-justified" role="tablist" >
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tickets</a></li>
+    <li role="presentation"><a href="#frieda" aria-controls="profile" role="tab" data-toggle="tab">E-ticket PEETERS Frieda</a></li>
+    <li role="presentation"><a href="#jan" aria-controls="profile" role="tab" data-toggle="tab">E-ticket JANSSENS Jan</a></li>
     
   </ul>
 
@@ -24,7 +24,7 @@
   	<div role="tabpanel" class="tab-pane active" id="home">
     <h2><span class="glyphicon glyphicon-user"></span><span class="liText"> E-tickets</span><img id="logo" alt="Swiftair logo"  src="{{ asset('bundles/scrumswiftair/images/logo.png')}}"  ></h2>
     <fieldset>
-    <p class="col-sm-9"> Uw vlucht is geboekt, hier kan u uw e-ticket afdrukken en bekijken. Klik op de gewenste naam om uw ticket te bekijken. </p>
+    <p class="col-sm-9"> Uw vlucht is geboekt, hier kan u uw e-ticket afdrukken en bekijken. <b> Klik op de gewenste naam om uw ticket te bekijken. </b></p>
     <p class="col-sm-9"> Wij wensen u alvast een prettige vlucht toe! </p>
     
     </fieldset>
@@ -32,7 +32,7 @@
   
   
     <div role="tabpanel" class="tab-pane" id="jan">
-    <h2> <span class="glyphicon glyphicon-user"></span></span>JANSSENS Jan</a></h2>
+    <h2> <span class="glyphicon glyphicon-user"></span></span>E-ticket JANSSENS Jan</a></h2>
     <object data="{{ asset('bundles/scrumswiftair/e-ticket01.pdf')}}"
             type='application/pdf' 
             width='100%' 
@@ -47,7 +47,7 @@
     
     
     <div role="tabpanel" class="tab-pane" id="frieda">
-    <h2> <span class="glyphicon glyphicon-user"></span></span>PEETERS Frieda</a></h2>
+    <h2> <span class="glyphicon glyphicon-user"></span></span>E-ticket PEETERS Frieda</a></h2>
     <object data="{{ asset('bundles/scrumswiftair/e-ticket02.pdf')}}"
             type='application/pdf' 
             width='100%' 
@@ -61,7 +61,7 @@
     
   </div>
 
-</div>
+
 </div>
 </div>
 
