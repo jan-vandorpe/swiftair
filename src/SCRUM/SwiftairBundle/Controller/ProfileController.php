@@ -5,6 +5,7 @@ namespace SCRUM\SwiftairBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use SCRUM\SwiftairBundle\Entity\Klanten;
+use SCRUM\SwiftairBundle\Entity\Bestellingen;
 
 class ProfileController extends Controller {
     public function indexAction(Request $request) {
@@ -31,6 +32,9 @@ class ProfileController extends Controller {
     }
     
     public function ticketsAction() {
-        return $this->render('SCRUMSwiftairBundle:Profile:tickets.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $bestellingen = $em->getRepository('SCRUMSwiftairBundle:Bestellingen')->findAll();
+        
+        return $this->render('SCRUMSwiftairBundle:Profile:tickets.html.twig', array('bestellingen' => $bestellingen));
     }
 }

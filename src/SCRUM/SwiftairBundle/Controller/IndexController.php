@@ -37,7 +37,7 @@ class IndexController extends Controller {
     
     public function getChoices($landen) {
         $choices = array();
-        $choices[0] = '--- Kies Land ---';
+        $choices[0] = 'Selecteer land...';
         
         foreach ($landen as $land) { $choices[$land->getId()] = $land->getNaam(); }
         
@@ -46,7 +46,7 @@ class IndexController extends Controller {
     
     public function getClasses($klasses) {
         $classes = array();
-        $classes[0] = '--- Kies Klasse ---';
+        $classes[0] = 'Selecteer klasse...';
         
         foreach ($klasses as $klasse) { $classes[$klasse->getId()] = $klasse->getNaam(); }
         
@@ -55,7 +55,7 @@ class IndexController extends Controller {
     
     public function getNumber() {
         $numbers = array();
-        $numbers[0] = '--- Kies Aantal ---';
+        $numbers[0] = 'Selecteer aantal...';
         
         for ($i = 1; $i <= 20; $i++) {
             $numbers[$i] = $i;

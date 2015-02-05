@@ -13,6 +13,7 @@
         <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/jquery.validate.min.js') }}"> </script>
         <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/jquery-ui-1.11.2.custom/jquery-validation-1.13.1/dist/additional-methods.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/chosen_v1.3.0/chosen.jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('bundles/scrumswiftair/js/swiftair.js') }}"></script>
     {% endblock %}
 
@@ -22,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/css/normalize.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/css/algemeen.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/css/StyleSheet.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/scrumswiftair/js/chosen_v1.3.0/chosen.css')}}">
         
     {% endblock %}
 </head>
@@ -124,6 +126,22 @@
         $('#pauseButton').click(function () {
             $('#myCarousel').carousel('pause');
         });
+        
+        $('#form_vertrek').chosen({
+            width: "40%"
+        });
+        $('#form_bestemming').chosen({
+                width: "40%"
+            });
+        $('#form_klasse').chosen({
+            width: "40%",
+            disable_search: true
+        });
+        $('#form_aantal').chosen({
+            width: "40%",
+            disable_search: true
+        });
+        
             });
 
     </script> 

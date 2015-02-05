@@ -12,29 +12,29 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container scroll">
+    <div class="container">
         {{ form_start(form) }}
-        <div class="col-sm-9">
+        <div>
             <div>{{ form_label(form.vertrek) }}</div>
-            <div >{{ form_widget(form.vertrek, {'attr': {'class': 'form-control'}} ) }}</div>
+            <div >{{ form_widget(form.vertrek) }}</div>
         </div>
         
-        <div class="col-sm-9" >
+        <div>
             <div>{{ form_label(form.bestemming) }}</div>
-            <div >{{ form_widget(form.bestemming, {'attr': {'class': 'form-control'}} ) }}</div>
+            <div >{{ form_widget(form.bestemming) }}</div>
         </div>
 
-        <div class="col-sm-9">
+        <div>
             <div>{{ form_label(form.klasse) }}</div>
-            <div>{{ form_widget(form.klasse, {'attr': {'class': 'form-control'}} ) }}</div>
+            <div>{{ form_widget(form.klasse) }}</div>
         </div>
      
-        <div class="col-sm-9">
+        <div>
             <div>{{ form_label(form.aantal) }}</div>
-            <div>{{ form_widget(form.aantal, {'attr': {'class': 'form-control'}} ) }}</div>
+            <div>{{ form_widget(form.aantal) }}</div>
         </div>
         
-        <div class="col-sm-9">
+        <div>
             {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-sm col-sm-4 formknop'}} ) }}
         </div>
         
