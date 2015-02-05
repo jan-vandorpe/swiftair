@@ -19,7 +19,7 @@ class PassagiersType extends AbstractType
             ->add('voornaam')
             ->add('adres')
             ->add('rijksregister')
-            ->add('geboortedatum', 'date', array('years' => range(date('Y'), date('Y') - 100), 'widget' => 'single_text', 'format' => 'yyyy-MM-dd'))
+            ->add('geboortedatum', 'date', array('years' => range(date('Y'), date('Y') - 100)))
             ->add('bagage', 'checkbox', array('required' => false))
             ->add('verzekering', 'checkbox', array('required' => false))
         ;
