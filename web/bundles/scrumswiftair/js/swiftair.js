@@ -12,6 +12,9 @@ $(function ($) {
             if(nId == 4) {
                 getData();
             }
+            if (nId == 3) {
+                getKlantData();
+            }
 	}); 
  	$("button[id^='nexttab']").click(function() {
             $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
@@ -19,17 +22,26 @@ $(function ($) {
             if(nId == 4) {
                 getData();
             }
+            if (nId == 3) {
+                getKlantData();
+            }
 	}); 
     
-    $('#klantgegevens').click(function() {
-        $('#scrum_swiftairbundle_bestellingen_passagiers_0_naam').val($('#scrum_swiftairbundle_bestellingen_klanten_0_naam').val());
-        $('#scrum_swiftairbundle_bestellingen_passagiers_0_voornaam').val($('#scrum_swiftairbundle_bestellingen_klanten_0_voornaam').val());
-        $('#scrum_swiftairbundle_bestellingen_passagiers_0_adres').val($('#scrum_swiftairbundle_bestellingen_klanten_0_adres').val());
+
+    $('#passagiersinfo').click(function() {
+        getKlantData();
     });
+
     
     $('#confirm').click(function() {
         getData();
     });
+    
+    function getKlantData() {
+        $('#scrum_swiftairbundle_bestellingen_passagiers_0_naam').val($('#scrum_swiftairbundle_bestellingen_klanten_0_naam').val());
+        $('#scrum_swiftairbundle_bestellingen_passagiers_0_voornaam').val($('#scrum_swiftairbundle_bestellingen_klanten_0_voornaam').val());
+        $('#scrum_swiftairbundle_bestellingen_passagiers_0_adres').val($('#scrum_swiftairbundle_bestellingen_klanten_0_adres').val());
+    }
     
     function getData(){
         var eBevestig1 = $('#bevestig1');
